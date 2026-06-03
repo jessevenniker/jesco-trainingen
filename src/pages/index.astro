@@ -7,16 +7,50 @@ import Approach from '../components/Approach.astro';
 import About from '../components/About.astro';
 import Results from '../components/Results.astro';
 import Contact from '../components/Contact.astro';
+import Interlude from '../components/Interlude.astro';
 ---
 
 <Layout>
   <Nav />
   <main>
     <Hero />
+
     <Problem />
+
+    <!-- na het probleem, voor de aanpak -->
+    <Interlude
+      quote="Betrokken, kundig en goed voorbereid."
+      context="deelnemer, eerste training"
+    />
+
     <Approach />
+
+    <!-- na de aanpak — overgang naar de mens erachter -->
+    <Interlude
+      quote="Was in de lead en sloot aan op interesses van het publiek."
+      context="deelnemer, eerste training"
+    />
+
     <About />
+
+    <!-- na Jesse's tekst — laat anderen het bevestigen -->
+    <Interlude
+      quote="Authentiek."
+      context="deelnemer, eerste training"
+    />
+    <Interlude
+      quote="Staat rustig en stevig voor de groep."
+      context="deelnemer, eerste training"
+    />
+
     <Results />
+
+    <!-- vlak voor contact — het laatste wat iemand leest voor ze mailen -->
+    <Interlude
+      quote="Heel interactief, pakt het snel weer op."
+      context="deelnemer, eerste training"
+    />
+
     <Contact />
   </main>
 </Layout>

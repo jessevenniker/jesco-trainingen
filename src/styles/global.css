@@ -234,6 +234,16 @@ ul, ol { list-style: none; }
   margin-top: var(--sp-s);
 }
 
+.problem__score {
+  margin-top: var(--sp-l);
+  padding-top: var(--sp-m);
+  border-top: 1px solid rgba(28, 25, 23, 0.1);
+  font-family: var(--serif);
+  font-size: var(--text-m);
+  line-height: 1.7;
+  color: var(--ink-mid);
+}
+
 /* inline stats — live in the flow of text */
 .stat {
   font-family: var(--serif);
@@ -469,6 +479,44 @@ ul, ol { list-style: none; }
   font-size: var(--text-xs);
   color: var(--ink-faint);
   font-weight: 400;
+}
+
+/* ─── Interlude — inline quote between sections ───────────── */
+.interlude {
+  padding-block: var(--sp-l);
+  background: var(--bg);
+}
+
+.interlude__quote {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: var(--text-s);
+  line-height: 1.6;
+  color: var(--ink-mid);
+  max-width: 42ch;
+  padding-left: clamp(1.5rem, 5vw, 4rem);
+  position: relative;
+}
+
+.interlude__quote::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.4em;
+  height: calc(100% - 0.4em);
+  width: 1px;
+  background: var(--accent);
+  opacity: 0.35;
+}
+
+.interlude__context {
+  display: block;
+  margin-top: var(--sp-2xs);
+  font-style: normal;
+  font-family: var(--sans);
+  font-size: var(--text-xs);
+  color: var(--ink-faint);
+  letter-spacing: 0.03em;
 }
 
 /* ─── Footer ──────────────────────────────────────────────── */

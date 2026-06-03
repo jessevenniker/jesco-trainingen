@@ -1,0 +1,16 @@
+---
+interface Props {
+  quote: string;
+  context?: string;
+}
+const { quote, context } = Astro.props;
+---
+
+<aside class="interlude">
+  <div class="container">
+    <p class="interlude__quote reveal">
+      {quote}
+      {context && <span class="interlude__context">{context}</span>}
+    </p>
+  </div>
+</aside>
