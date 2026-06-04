@@ -36,6 +36,16 @@ import Footer from '../components/Footer.astro';
               </p>
             </div>
           </div>
+          <div class="problem__photo reveal">
+            <img
+              src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=900&q=80"
+              alt="Vergadering in een moderne werkruimte"
+              loading="lazy"
+              decoding="async"
+              width="900"
+              height="675"
+            />
+          </div>
         </div>
       </div>
     </section>
@@ -44,19 +54,31 @@ import Footer from '../components/Footer.astro';
     <section class="score-section">
       <div class="container">
         <div class="score-section__inner">
-          <p class="score-section__num reveal" data-counter="9.4">9.4</p>
-          <p class="score-section__context reveal">
-            8 van de 8 deelnemers. Eerste training.
-            Curaçao Institute of Technology and Innovation.
-          </p>
-          <div class="score-section__quotes">
-            <p class="score-section__quote reveal">"Authentiek."</p>
-            <p class="score-section__quote reveal reveal-delay-1">"Betrokken, kundig en goed voorbereid."</p>
-            <p class="score-section__quote reveal reveal-delay-2">"Staat rustig en stevig voor de groep."</p>
+          <div class="score-section__content">
+            <p class="score-section__num reveal" data-counter="9.4">9.4</p>
+            <p class="score-section__context reveal">
+              8 van de 8 deelnemers. Eerste training.
+              Curaçao Institute of Technology and Innovation.
+            </p>
+            <div class="score-section__quotes">
+              <p class="score-section__quote reveal">"Authentiek."</p>
+              <p class="score-section__quote reveal reveal-delay-1">"Betrokken, kundig en goed voorbereid."</p>
+              <p class="score-section__quote reveal reveal-delay-2">"Staat rustig en stevig voor de groep."</p>
+            </div>
+            <a href="/over#resultaten" class="score-section__more reveal">
+              Bekijk alle reacties →
+            </a>
           </div>
-          <a href="/over#resultaten" class="score-section__more reveal">
-            Bekijk alle reacties →
-          </a>
+          <div class="score-section__photo reveal">
+            <img
+              src="/images/jesse-training.jpg"
+              alt="Jesse Venniker tijdens een training"
+              loading="lazy"
+              decoding="async"
+              width="600"
+              height="800"
+            />
+          </div>
         </div>
       </div>
     </section>
@@ -74,6 +96,16 @@ import Footer from '../components/Footer.astro';
               <span class="training-list__sub">Vergaderen dat ergens op uitkomt — voor teams die minder willen verspillen</span>
             </span>
             <span class="training-list__arrow">→</span>
+            <span class="training-list__thumb">
+              <img
+                src="/images/jesse-masterclass-scherm.jpg"
+                alt=""
+                loading="lazy"
+                decoding="async"
+                width="280"
+                height="180"
+              />
+            </span>
           </a>
 
           <a href="/trainingen/ai-hulpmiddel" class="training-list__item reveal">
@@ -83,6 +115,16 @@ import Footer from '../components/Footer.astro';
               <span class="training-list__sub">Sneller waar het helpt. Bewuster waar het niet helpt.</span>
             </span>
             <span class="training-list__arrow">→</span>
+            <span class="training-list__thumb">
+              <img
+                src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=400&q=80"
+                alt=""
+                loading="lazy"
+                decoding="async"
+                width="280"
+                height="180"
+              />
+            </span>
           </a>
 
           <a href="/trainingen/verantwoord-ai" class="training-list__item reveal">
@@ -92,6 +134,16 @@ import Footer from '../components/Footer.astro';
               <span class="training-list__sub">De mens aan het stuur — niet als rem, maar als fundament</span>
             </span>
             <span class="training-list__arrow">→</span>
+            <span class="training-list__thumb">
+              <img
+                src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=400&q=80"
+                alt=""
+                loading="lazy"
+                decoding="async"
+                width="280"
+                height="180"
+              />
+            </span>
           </a>
 
         </nav>
