@@ -95,6 +95,76 @@ import Footer from '../components/Footer.astro';
       context="deelnemer, eerste training"
     />
 
+    <!-- Resultaten — scores + quote masonry -->
+    <section class="resultaten" id="resultaten">
+      <div class="container">
+
+        <p class="resultaten__kicker reveal">Wat deelnemers zeggen</p>
+
+        <!-- Drie scores -->
+        <div class="resultaten__scores">
+          <div class="resultaten__score reveal">
+            <span class="resultaten__score-num">9.4</span>
+            <span class="resultaten__score-label">Hoe beoordeel je Jesse als trainer vandaag?</span>
+          </div>
+          <div class="resultaten__score reveal reveal-delay-1">
+            <span class="resultaten__score-num">9.5</span>
+            <span class="resultaten__score-label">In hoeverre sloot Jesse aan op het niveau en de behoeften van de groep?</span>
+          </div>
+          <div class="resultaten__score reveal reveal-delay-2">
+            <span class="resultaten__score-num">9.4</span>
+            <span class="resultaten__score-label">In hoeverre paste Jesse zijn uitleg aan op de groep?</span>
+          </div>
+        </div>
+
+        <!-- Typering winnaar -->
+        <div class="resultaten__typering reveal">
+          <p class="resultaten__typering-label">Wat typeerde Jesse het meest als trainer?</p>
+          <p class="resultaten__typering-winner">Betrokken en afgestemd op de groep.</p>
+          <p class="resultaten__typering-meta">7 van 8 deelnemers — Masterclass Effectief Vergaderen, 1 juni 2026</p>
+        </div>
+
+        <!-- Quote masonry — 8 open antwoorden -->
+        <p class="resultaten__quotes-heading reveal">Wat vond je het sterkste aan Jesse als trainer?</p>
+        <div class="quote-masonry">
+
+          <p class="quote-chip quote-chip--xl reveal">
+            "Authentiek."
+          </p>
+
+          <p class="quote-chip quote-chip--l reveal">
+            "Betrokken, kundig en goed voorbereid."
+          </p>
+
+          <p class="quote-chip quote-chip--l reveal">
+            "Heel interactief. Goed betrokken, duidelijk en pakt het snel weer op."
+          </p>
+
+          <p class="quote-chip quote-chip--m reveal">
+            "Was in de lead en sloot aan op interesses publiek."
+          </p>
+
+          <p class="quote-chip quote-chip--m reveal">
+            "Staat rustig en stevig voor groep, goede interactie en procesbewaking."
+          </p>
+
+          <p class="quote-chip quote-chip--m reveal">
+            "Communicatief en overwicht op de groep."
+          </p>
+
+          <p class="quote-chip quote-chip--s reveal">
+            "Hij paste zich goed aan aan wat er gebeurde tijdens de training en wist waar hij het over had."
+          </p>
+
+          <p class="quote-chip quote-chip--s reveal">
+            "Goede structuur, pakte terug waar nodig. Goed time management. Focus op alle deelnemers. Goede afwisseling tussen theorie, praktijk en interactieve oefening."
+          </p>
+
+        </div>
+
+      </div>
+    </section>
+
     <section class="cta-banner">
       <div class="container">
         <p class="cta-banner__text reveal">
