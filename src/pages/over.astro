@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import About from '../components/About.astro';
 import Interlude from '../components/Interlude.astro';
+import Footer from '../components/Footer.astro';
 ---
 
 <Layout
@@ -28,6 +29,67 @@ import Interlude from '../components/Interlude.astro';
       context="deelnemer, eerste training"
     />
 
+    <!-- Methode -->
+    <section class="methode">
+      <div class="container">
+        <div class="methode__inner">
+          <div class="methode__text">
+            <p class="methode__kicker reveal">Hoe Jesse werkt</p>
+            <h2 class="methode__title reveal reveal-delay-1">
+              Gedragsgericht. Onderbouwd. Contextgebonden.
+            </h2>
+            <div class="methode__body reveal reveal-delay-2">
+              <p>
+                Jesse is psycholoog van opleiding — en dat merk je. Zijn trainingen gaan
+                niet alleen over structuur en theorie, maar over het concrete gedrag dat
+                verandering in de praktijk zichtbaar maakt. Want kennis is pas waardevol
+                als het verandert wat mensen doen.
+              </p>
+              <p>
+                Elke training begint met een intake: wat speelt er in jouw team, wat is
+                de context, wat zijn de echte knelpunten? Pas daarna wordt de inhoud
+                samengesteld. Dat is geen service — het is een didactische keuze.
+                Onderzoek van Edmondson (Harvard Business School) laat zien dat leren
+                alleen beklijft als deelnemers zich veilig voelen om te oefenen, te
+                falen en te bevragen. Die psychologische veiligheid ontwerp je bewust
+                — en dat begint vóór de training start.
+              </p>
+            </div>
+          </div>
+          <div class="methode__pillars">
+            <div class="methode__pillar reveal">
+              <p class="methode__pillar-title">Gedragsgericht</p>
+              <p class="methode__pillar-desc">
+                Elke training werkt toe naar concreet, observeerbaar gedrag.
+                Geen vage inzichten maar meetbare verandering.
+              </p>
+            </div>
+            <div class="methode__pillar reveal reveal-delay-1">
+              <p class="methode__pillar-title">Blended</p>
+              <p class="methode__pillar-desc">
+                Live training en e-learning versterken elkaar.
+                Gespreide herhaling zorgt dat het beklijft.
+              </p>
+            </div>
+            <div class="methode__pillar reveal">
+              <p class="methode__pillar-title">Contextgebonden</p>
+              <p class="methode__pillar-desc">
+                Elke training vertrekt vanuit de situatie van jouw team.
+                Geen generieke casussen, maar herkenbare werkelijkheid.
+              </p>
+            </div>
+            <div class="methode__pillar reveal reveal-delay-1">
+              <p class="methode__pillar-title">Psychologisch fundament</p>
+              <p class="methode__pillar-desc">
+                Groepsdynamiek, psychologische veiligheid en menselijk gedrag
+                zijn geen bijzaken — ze zijn het vertrekpunt.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <Interlude
       quote="Staat rustig en stevig voor de groep."
       context="deelnemer, eerste training"
@@ -45,4 +107,5 @@ import Interlude from '../components/Interlude.astro';
     </section>
 
   </main>
+  <Footer />
 </Layout>

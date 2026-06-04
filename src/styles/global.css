@@ -1287,6 +1287,311 @@ ul, ol { list-style: none; }
 
 .training-nav__link--next { text-align: right; }
 
+/* ─── Statistieken in de problem-sectie ──────────────────── */
+.problem__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-m);
+  margin-top: var(--sp-xl);
+  border-top: 1px solid rgba(28, 25, 23, 0.1);
+  padding-top: var(--sp-xl);
+}
+
+@media (max-width: 52rem) {
+  .problem__stats { grid-template-columns: 1fr; }
+}
+
+.problem__stat {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2xs);
+  padding-left: var(--sp-m);
+  border-left: 2px solid rgba(181, 84, 30, 0.35);
+}
+
+.problem__stat-num {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--ink);
+}
+
+.problem__stat-desc {
+  font-family: var(--sans);
+  font-size: var(--text-s);
+  color: var(--ink-mid);
+  line-height: 1.5;
+  max-width: 28ch;
+}
+
+.problem__stat-source {
+  font-family: var(--sans);
+  font-size: var(--text-xs);
+  color: var(--accent);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  opacity: 0.7;
+}
+
+/* ─── De wetenschap erachter ──────────────────────────────── */
+.wetenschap {
+  padding-block: var(--sp-2xl);
+  background: var(--white);
+}
+
+.wetenschap__kicker {
+  font-family: var(--sans);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: var(--sp-s);
+}
+
+.wetenschap__intro {
+  font-family: var(--serif);
+  font-size: var(--text-m);
+  line-height: 1.8;
+  color: var(--ink-mid);
+  max-width: 58ch;
+  margin-bottom: var(--sp-xl);
+}
+
+.wetenschap__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--sp-m);
+}
+
+@media (max-width: 48rem) {
+  .wetenschap__grid { grid-template-columns: 1fr; }
+}
+
+.wetenschap__item {
+  padding: var(--sp-m);
+  background: var(--bg);
+  border-left: 3px solid rgba(181, 84, 30, 0.4);
+}
+
+.wetenschap__finding {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: var(--text-m);
+  color: var(--ink);
+  line-height: 1.65;
+  margin-bottom: var(--sp-xs);
+}
+
+.wetenschap__citation {
+  font-family: var(--sans);
+  font-size: var(--text-xs);
+  color: var(--ink-faint);
+  letter-spacing: 0.03em;
+  line-height: 1.5;
+}
+
+/* ─── Methode (Over-pagina) ───────────────────────────────── */
+.methode {
+  padding-block: var(--sp-2xl);
+  background: var(--white);
+}
+
+.methode__kicker {
+  font-family: var(--sans);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: var(--sp-l);
+}
+
+.methode__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-2xl);
+}
+
+@media (min-width: 52rem) {
+  .methode__inner { grid-template-columns: 1fr 1fr; align-items: start; }
+}
+
+.methode__title {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: var(--text-xl);
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: var(--sp-m);
+  line-height: 1.3;
+}
+
+.methode__body p {
+  font-family: var(--serif);
+  font-size: var(--text-m);
+  line-height: 1.85;
+  color: var(--ink-mid);
+}
+
+.methode__body p + p { margin-top: var(--sp-s); }
+
+.methode__cite {
+  margin-top: var(--sp-m);
+  font-family: var(--sans);
+  font-size: var(--text-xs);
+  color: var(--accent);
+  opacity: 0.75;
+  font-style: italic;
+}
+
+.methode__pillars {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-m);
+}
+
+.methode__pillar {
+  padding: var(--sp-m);
+  background: var(--bg);
+}
+
+.methode__pillar-num {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.75rem;
+  color: rgba(28, 25, 23, 0.12);
+  display: block;
+  margin-bottom: var(--sp-2xs);
+  line-height: 1;
+}
+
+.methode__pillar-title {
+  font-family: var(--sans);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: var(--sp-2xs);
+  display: block;
+}
+
+.methode__pillar-desc {
+  font-family: var(--serif);
+  font-size: var(--text-s);
+  line-height: 1.7;
+  color: var(--ink-mid);
+}
+
+/* ─── Blended journey (E-learning pagina) ─────────────────── */
+.journey-section {
+  padding-block: var(--sp-2xl);
+  background: var(--white);
+}
+
+.journey-section__kicker {
+  font-family: var(--sans);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: var(--sp-s);
+}
+
+.journey-section__title {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: var(--text-2xl);
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: var(--sp-xl);
+  line-height: 1.2;
+}
+
+.journey {
+  display: grid;
+  grid-template-columns: 1fr 2rem 1fr 2rem 1fr;
+  align-items: start;
+  gap: var(--sp-s);
+}
+
+@media (max-width: 52rem) {
+  .journey { grid-template-columns: 1fr; }
+  .journey__connector { display: none; }
+}
+
+.journey__connector {
+  text-align: center;
+  font-size: 1.25rem;
+  color: var(--accent);
+  opacity: 0.45;
+  padding-top: 2.5rem;
+}
+
+.journey__step {
+  padding: var(--sp-m);
+  background: var(--bg);
+}
+
+.journey__num {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 2rem;
+  color: rgba(28, 25, 23, 0.12);
+  display: block;
+  margin-bottom: var(--sp-2xs);
+  line-height: 1;
+}
+
+.journey__label {
+  font-family: var(--sans);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: var(--sp-2xs);
+  display: block;
+}
+
+.journey__title {
+  font-family: var(--serif);
+  font-size: var(--text-l);
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: var(--sp-xs);
+}
+
+.journey__desc {
+  font-family: var(--serif);
+  font-size: var(--text-s);
+  line-height: 1.75;
+  color: var(--ink-mid);
+}
+
+.journey-section__note {
+  margin-top: var(--sp-xl);
+  font-family: var(--sans);
+  font-size: var(--text-xs);
+  color: var(--ink-faint);
+  max-width: 62ch;
+  line-height: 1.75;
+  border-top: 1px solid rgba(28, 25, 23, 0.08);
+  padding-top: var(--sp-m);
+}
+
+.journey-section__cite {
+  display: block;
+  margin-top: 0.3rem;
+  color: var(--accent);
+  opacity: 0.65;
+  font-style: italic;
+}
+
 /* ─── CTA Banner ──────────────────────────────────────────── */
 .cta-banner {
   padding-block: var(--sp-xl);
