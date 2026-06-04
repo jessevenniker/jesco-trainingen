@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Hero from '../components/Hero.astro';
+import Marquee from '../components/Marquee.astro';
 import Results from '../components/Results.astro';
 ---
 
@@ -9,12 +10,13 @@ import Results from '../components/Results.astro';
   <Nav />
   <main>
     <Hero />
+    <Marquee />
 
-    <!-- Kort probleem + score -->
+    <!-- Probleem — met 31 als grafisch element -->
     <section class="problem">
       <div class="container">
         <div class="problem__inner">
-          <div class="problem__margin"></div>
+          <div class="problem__big-num" aria-hidden="true">31</div>
           <div class="problem__content">
             <h2 class="problem__heading reveal">
               Wat gaat er eigenlijk mis?
@@ -27,9 +29,6 @@ import Results from '../components/Results.astro';
                 omdat niemand ze ooit heeft geleerd hoe vergaderen eigenlijk werkt.
               </p>
             </div>
-            <p class="problem__score reveal reveal-delay-2">
-              8 van de 8 deelnemers beoordeelden de training met gemiddeld een <span class="stat">9.4</span>.
-            </p>
           </div>
         </div>
       </div>
