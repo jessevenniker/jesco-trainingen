@@ -190,7 +190,7 @@ ul, ol { list-style: none; }
 /* ─── Problem ─────────────────────────────────────────────── */
 .problem {
   padding-block: var(--sp-2xl);
-  background: var(--white);
+  background: var(--bg);
 }
 
 .problem__inner {
@@ -257,7 +257,7 @@ ul, ol { list-style: none; }
 /* ─── Approach ────────────────────────────────────────────── */
 .approach {
   padding-block: var(--sp-2xl);
-  background: var(--bg);
+  background: var(--white);
 }
 
 .approach__heading {
@@ -346,12 +346,11 @@ ul, ol { list-style: none; }
 /* ─── About ───────────────────────────────────────────────── */
 .about {
   padding-block: var(--sp-2xl);
-  background: var(--white);
+  background: var(--ink);
 }
 
 .about__inner {
   max-width: 65ch;
-  /* no centering — left-aligned within the container */
 }
 
 .about__kicker {
@@ -360,7 +359,7 @@ ul, ol { list-style: none; }
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--ink-faint);
+  color: rgba(247, 243, 238, 0.4);
   margin-bottom: var(--sp-m);
 }
 
@@ -370,7 +369,7 @@ ul, ol { list-style: none; }
   font-size: var(--text-2xl);
   font-weight: 400;
   line-height: 1.2;
-  color: var(--ink);
+  color: var(--bg);
   margin-bottom: var(--sp-l);
 }
 
@@ -378,7 +377,7 @@ ul, ol { list-style: none; }
   font-family: var(--serif);
   font-size: var(--text-m);
   line-height: 1.9;
-  color: var(--ink);
+  color: rgba(247, 243, 238, 0.65);
 }
 
 .about__body p + p {
@@ -433,7 +432,7 @@ ul, ol { list-style: none; }
 /* ─── Contact ─────────────────────────────────────────────── */
 .contact {
   padding-block: var(--sp-2xl);
-  background: var(--white);
+  background: var(--ink);
 }
 
 .contact__heading {
@@ -442,7 +441,7 @@ ul, ol { list-style: none; }
   font-size: var(--text-2xl);
   font-weight: 400;
   line-height: 1.2;
-  color: var(--ink);
+  color: var(--bg);
   max-width: 22ch;
   margin-bottom: var(--sp-s);
 }
@@ -451,7 +450,7 @@ ul, ol { list-style: none; }
   font-family: var(--serif);
   font-size: var(--text-m);
   line-height: 1.75;
-  color: var(--ink-mid);
+  color: rgba(247, 243, 238, 0.6);
   max-width: 48ch;
   margin-bottom: var(--sp-l);
 }
@@ -467,7 +466,7 @@ ul, ol { list-style: none; }
   transition: color 0.2s;
 }
 
-.contact__email:hover { color: var(--ink); }
+.contact__email:hover { color: var(--bg); }
 
 .contact__meta {
   margin-top: var(--sp-l);
@@ -476,7 +475,7 @@ ul, ol { list-style: none; }
   gap: var(--sp-2xs);
   font-family: var(--sans);
   font-size: var(--text-xs);
-  color: var(--ink-faint);
+  color: rgba(247, 243, 238, 0.35);
   font-weight: 400;
 }
 
@@ -521,10 +520,11 @@ ul, ol { list-style: none; }
 /* ─── Footer ──────────────────────────────────────────────── */
 .footer {
   padding-block: var(--sp-s);
-  border-top: 1px solid rgba(28, 25, 23, 0.08);
+  border-top: 1px solid rgba(247, 243, 238, 0.1);
+  background: var(--ink);
   font-family: var(--sans);
   font-size: var(--text-xs);
-  color: var(--ink-faint);
+  color: rgba(247, 243, 238, 0.3);
 }
 
 .footer__inner {
