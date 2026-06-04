@@ -1,0 +1,48 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Approach from '../components/Approach.astro';
+import Interlude from '../components/Interlude.astro';
+---
+
+<Layout
+  title="Trainingen — Jesco Trainingen"
+  description="Drie trainingen voor teams: effectief vergaderen, AI als hulpmiddel en verantwoord omgaan met AI. Praktisch, persoonlijk en direct toepasbaar."
+>
+  <Nav />
+  <main>
+
+    <header class="page-header">
+      <div class="container">
+        <p class="page-header__kicker">De trainingen</p>
+        <h1 class="page-header__title">
+          Drie trainingen. Elk staat op zichzelf, elk sluit aan op de rest.
+        </h1>
+      </div>
+    </header>
+
+    <Approach />
+
+    <Interlude
+      quote="Betrokken, kundig en goed voorbereid."
+      context="deelnemer, eerste training"
+    />
+
+    <Interlude
+      quote="Was in de lead en sloot aan op interesses van het publiek."
+      context="deelnemer, eerste training"
+    />
+
+    <section class="cta-banner">
+      <div class="container">
+        <p class="cta-banner__text reveal">
+          Klaar om een training te plannen?
+        </p>
+        <a href="/contact" class="cta-banner__link reveal reveal-delay-1">
+          Neem contact op
+        </a>
+      </div>
+    </section>
+
+  </main>
+</Layout>

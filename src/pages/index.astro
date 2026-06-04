@@ -2,12 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Hero from '../components/Hero.astro';
-import Problem from '../components/Problem.astro';
-import Approach from '../components/Approach.astro';
-import About from '../components/About.astro';
 import Results from '../components/Results.astro';
-import Contact from '../components/Contact.astro';
-import Interlude from '../components/Interlude.astro';
 ---
 
 <Layout>
@@ -15,42 +10,91 @@ import Interlude from '../components/Interlude.astro';
   <main>
     <Hero />
 
-    <Problem />
+    <!-- Kort probleem + score -->
+    <section class="problem">
+      <div class="container">
+        <div class="problem__inner">
+          <div class="problem__margin"></div>
+          <div class="problem__content">
+            <h2 class="problem__heading reveal">
+              Wat gaat er eigenlijk mis?
+            </h2>
+            <div class="problem__body reveal reveal-delay-1">
+              <p>
+                De gemiddelde professional verliest <span class="stat">31 uur</span> per
+                maand aan vergaderingen die hij of zij achteraf als zinloos ervaart. Dat
+                zijn meer dan vier werkdagen. Niet omdat mensen het slecht bedoelen, maar
+                omdat niemand ze ooit heeft geleerd hoe vergaderen eigenlijk werkt.
+              </p>
+            </div>
+            <p class="problem__score reveal reveal-delay-2">
+              8 van de 8 deelnemers beoordeelden de training met gemiddeld een <span class="stat">9.4</span>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <!-- na het probleem, voor de aanpak -->
-    <Interlude
-      quote="Betrokken, kundig en goed voorbereid."
-      context="deelnemer, eerste training"
-    />
+    <!-- Trainingen overzicht -->
+    <section class="teasers">
+      <div class="container">
+        <p class="teasers__kicker reveal">De trainingen</p>
+        <ol class="teasers__list">
 
-    <Approach />
+          <li>
+            <a href="/trainingen" class="teasers__item reveal">
+              <span class="teasers__num" aria-hidden="true">1</span>
+              <div class="teasers__content">
+                <p class="teasers__label">Effectief vergaderen</p>
+                <h3 class="teasers__title">Je kunt het leren. En beter leren doen.</h3>
+              </div>
+              <span class="teasers__arrow">Lees meer →</span>
+            </a>
+          </li>
 
-    <!-- na de aanpak — overgang naar de mens erachter -->
-    <Interlude
-      quote="Was in de lead en sloot aan op interesses van het publiek."
-      context="deelnemer, eerste training"
-    />
+          <li>
+            <a href="/trainingen" class="teasers__item reveal reveal-delay-1">
+              <span class="teasers__num" aria-hidden="true">2</span>
+              <div class="teasers__content">
+                <p class="teasers__label">AI als hulpmiddel op de werkvloer</p>
+                <h3 class="teasers__title">Sneller waar het helpt. Bewuster waar het niet helpt.</h3>
+              </div>
+              <span class="teasers__arrow">Lees meer →</span>
+            </a>
+          </li>
 
-    <About />
+          <li>
+            <a href="/trainingen" class="teasers__item reveal reveal-delay-2">
+              <span class="teasers__num" aria-hidden="true">3</span>
+              <div class="teasers__content">
+                <p class="teasers__label">Verantwoord omgaan met AI</p>
+                <h3 class="teasers__title">De mens aan het stuur. Niet als rem, maar als fundament.</h3>
+              </div>
+              <span class="teasers__arrow">Lees meer →</span>
+            </a>
+          </li>
 
-    <!-- na Jesse's tekst — laat anderen het bevestigen -->
-    <Interlude
-      quote="Authentiek."
-      context="deelnemer, eerste training"
-    />
-    <Interlude
-      quote="Staat rustig en stevig voor de groep."
-      context="deelnemer, eerste training"
-    />
+        </ol>
+        <div class="teasers__cta-wrap reveal">
+          <a href="/trainingen" class="teasers__cta">Bekijk alle trainingen</a>
+        </div>
+      </div>
+    </section>
 
+    <!-- Quotes -->
     <Results />
 
-    <!-- vlak voor contact — het laatste wat iemand leest voor ze mailen -->
-    <Interlude
-      quote="Heel interactief, pakt het snel weer op."
-      context="deelnemer, eerste training"
-    />
+    <!-- CTA banner -->
+    <section class="cta-banner">
+      <div class="container">
+        <p class="cta-banner__text reveal">
+          Benieuwd of dit bij jouw team past?
+        </p>
+        <a href="/contact" class="cta-banner__link reveal reveal-delay-1">
+          Neem contact op
+        </a>
+      </div>
+    </section>
 
-    <Contact />
   </main>
 </Layout>

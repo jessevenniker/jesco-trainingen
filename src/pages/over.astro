@@ -1,0 +1,48 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import About from '../components/About.astro';
+import Interlude from '../components/Interlude.astro';
+---
+
+<Layout
+  title="Over Jesse — Jesco Trainingen"
+  description="Jesse Venniker is psycholoog en trainer. Hij werkt met teams die merken dat vergaderen beter kan en organisaties die AI willen begrijpen."
+>
+  <Nav />
+  <main>
+
+    <header class="page-header">
+      <div class="container">
+        <p class="page-header__kicker">Over Jesse</p>
+        <h1 class="page-header__title">
+          Ik werk met mensen, niet aan mensen.
+        </h1>
+      </div>
+    </header>
+
+    <About />
+
+    <Interlude
+      quote="Authentiek."
+      context="deelnemer, eerste training"
+    />
+
+    <Interlude
+      quote="Staat rustig en stevig voor de groep."
+      context="deelnemer, eerste training"
+    />
+
+    <section class="cta-banner">
+      <div class="container">
+        <p class="cta-banner__text reveal">
+          Wil je weten of dit bij jouw situatie past?
+        </p>
+        <a href="/contact" class="cta-banner__link reveal reveal-delay-1">
+          Neem contact op
+        </a>
+      </div>
+    </section>
+
+  </main>
+</Layout>
