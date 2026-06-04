@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Hero from '../components/Hero.astro';
 import Marquee from '../components/Marquee.astro';
-import Results from '../components/Results.astro';
+import Footer from '../components/Footer.astro';
 ---
 
 <Layout>
@@ -12,7 +12,7 @@ import Results from '../components/Results.astro';
     <Hero />
     <Marquee />
 
-    <!-- Probleem — met 31 als grafisch element -->
+    <!-- Probleem -->
     <section class="problem">
       <div class="container">
         <div class="problem__inner">
@@ -34,53 +34,65 @@ import Results from '../components/Results.astro';
       </div>
     </section>
 
-    <!-- Trainingen overzicht -->
+    <!-- Trainingen — kaarten met foto -->
     <section class="teasers">
       <div class="container">
         <p class="teasers__kicker reveal">De trainingen</p>
-        <ol class="teasers__list">
+        <div class="teasers__grid">
 
-          <li>
-            <a href="/trainingen" class="teasers__item reveal">
-              <span class="teasers__num" aria-hidden="true">1</span>
-              <div class="teasers__content">
-                <p class="teasers__label">Effectief vergaderen</p>
-                <h3 class="teasers__title">Je kunt het leren. En beter leren doen.</h3>
-              </div>
-              <span class="teasers__arrow">Lees meer →</span>
-            </a>
-          </li>
+          <a href="/trainingen/effectief-vergaderen" class="teasers__card reveal">
+            <div class="teasers__card-photo">
+              <img
+                src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&q=80"
+                alt="Team in vergadering"
+                loading="lazy"
+              />
+            </div>
+            <div class="teasers__card-body">
+              <span class="teasers__card-num">01</span>
+              <p class="teasers__label">Effectief vergaderen</p>
+              <h3 class="teasers__title">Je kunt het leren. En beter leren doen.</h3>
+              <span class="teasers__card-arrow">Lees meer →</span>
+            </div>
+          </a>
 
-          <li>
-            <a href="/trainingen" class="teasers__item reveal reveal-delay-1">
-              <span class="teasers__num" aria-hidden="true">2</span>
-              <div class="teasers__content">
-                <p class="teasers__label">AI als hulpmiddel op de werkvloer</p>
-                <h3 class="teasers__title">Sneller waar het helpt. Bewuster waar het niet helpt.</h3>
-              </div>
-              <span class="teasers__arrow">Lees meer →</span>
-            </a>
-          </li>
+          <a href="/trainingen/ai-hulpmiddel" class="teasers__card reveal reveal-delay-1">
+            <div class="teasers__card-photo">
+              <img
+                src="https://images.unsplash.com/photo-1488229297570-58520851e868?w=800&q=80"
+                alt="Professional werkt met AI tools"
+                loading="lazy"
+              />
+            </div>
+            <div class="teasers__card-body">
+              <span class="teasers__card-num">02</span>
+              <p class="teasers__label">AI als hulpmiddel op de werkvloer</p>
+              <h3 class="teasers__title">Sneller waar het helpt. Bewuster waar het niet helpt.</h3>
+              <span class="teasers__card-arrow">Lees meer →</span>
+            </div>
+          </a>
 
-          <li>
-            <a href="/trainingen" class="teasers__item reveal reveal-delay-2">
-              <span class="teasers__num" aria-hidden="true">3</span>
-              <div class="teasers__content">
-                <p class="teasers__label">Verantwoord omgaan met AI</p>
-                <h3 class="teasers__title">De mens aan het stuur. Niet als rem, maar als fundament.</h3>
-              </div>
-              <span class="teasers__arrow">Lees meer →</span>
-            </a>
-          </li>
+          <a href="/trainingen/verantwoord-ai" class="teasers__card reveal reveal-delay-2">
+            <div class="teasers__card-photo">
+              <img
+                src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80"
+                alt="Team in gesprek over verantwoord AI gebruik"
+                loading="lazy"
+              />
+            </div>
+            <div class="teasers__card-body">
+              <span class="teasers__card-num">03</span>
+              <p class="teasers__label">Verantwoord omgaan met AI</p>
+              <h3 class="teasers__title">De mens aan het stuur. Niet als rem, maar als fundament.</h3>
+              <span class="teasers__card-arrow">Lees meer →</span>
+            </div>
+          </a>
 
-        </ol>
-        <div class="teasers__cta-wrap reveal">
-          <a href="/trainingen" class="teasers__cta">Bekijk alle trainingen</a>
         </div>
       </div>
     </section>
 
-    <!-- E-learning preview -->
+    <!-- Modern Meeting Skills — e-learning preview -->
     <section class="elearning-preview">
       <div class="container">
         <div class="elearning-preview__inner">
@@ -99,20 +111,6 @@ import Results from '../components/Results.astro';
       </div>
     </section>
 
-    <!-- Quotes -->
-    <Results />
-
-    <!-- CTA banner -->
-    <section class="cta-banner">
-      <div class="container">
-        <p class="cta-banner__text reveal">
-          Benieuwd of dit bij jouw team past?
-        </p>
-        <a href="/contact" class="cta-banner__link reveal reveal-delay-1">
-          Neem contact op
-        </a>
-      </div>
-    </section>
-
   </main>
+  <Footer />
 </Layout>

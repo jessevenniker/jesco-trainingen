@@ -1,0 +1,141 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout
+  title="AI als hulpmiddel op de werkvloer — Jesco Trainingen"
+  description="Praktische AI-training voor professionals: sneller waar het helpt, bewuster waar het niet helpt. Geen hype, wel concrete tools en inzichten."
+>
+  <Nav />
+  <main>
+
+    <!-- Header met foto -->
+    <header
+      class="page-header page-header--photo"
+      style="--training-photo: url('https://images.unsplash.com/photo-1488229297570-58520851e868?w=1400&q=80')"
+    >
+      <div class="container">
+        <p class="page-header__kicker">Training 02</p>
+        <h1 class="page-header__title">AI als hulpmiddel op de werkvloer</h1>
+        <p class="page-header__sub">Sneller waar het helpt. Bewuster waar het niet helpt.</p>
+      </div>
+    </header>
+
+    <!-- Intro -->
+    <section class="training-intro">
+      <div class="container">
+        <div class="training-intro__body reveal">
+          <p>
+            AI is overal — maar voor de meeste professionals voelt het nog als iets
+            wat anderen doen. In deze training maken we het concreet, praktisch en eerlijk.
+          </p>
+          <p>
+            We kijken niet naar de hype, maar naar wat AI jou en je team vandaag al
+            kan helpen. En naar wat het niet kan — want dat weten is net zo waardevol.
+          </p>
+          <p>
+            Na deze training weet je precies welke tools relevant zijn voor jouw werk,
+            hoe je ze inzet zonder gedoe, en wanneer je bewust kiest om ze níét te gebruiken.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wat je leert -->
+    <section class="training-outcomes">
+      <div class="container">
+        <p class="training-outcomes__kicker reveal">Wat je leert</p>
+        <ul class="training-outcomes__list">
+          <li class="training-outcomes__item reveal">
+            Wat AI wel en niet kan — zonder bullshit en zonder angstverhalen
+          </li>
+          <li class="training-outcomes__item reveal">
+            Welke tools direct relevant zijn voor jouw werkpraktijk
+          </li>
+          <li class="training-outcomes__item reveal">
+            Hoe je prompts schrijft die écht werken, ook zonder technische achtergrond
+          </li>
+          <li class="training-outcomes__item reveal">
+            Hoe je AI integreert in bestaande processen zonder alles op zijn kop te zetten
+          </li>
+          <li class="training-outcomes__item reveal">
+            Wanneer je bewust kiest om AI niet in te zetten — en waarom dat net zo slim is
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Praktisch -->
+    <section class="training-format">
+      <div class="container">
+        <p class="training-format__kicker reveal">Praktisch</p>
+        <div class="training-format__grid reveal reveal-delay-1">
+          <div>
+            <p class="training-format__label">Duur</p>
+            <p class="training-format__value">Halve dag (4 uur)</p>
+          </div>
+          <div>
+            <p class="training-format__label">Groepsgrootte</p>
+            <p class="training-format__value">6 – 15 deelnemers</p>
+          </div>
+          <div>
+            <p class="training-format__label">Locatie</p>
+            <p class="training-format__value">Bij jullie op locatie</p>
+          </div>
+          <div>
+            <p class="training-format__label">Niveau</p>
+            <p class="training-format__value">Geen technische voorkennis vereist</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quote -->
+    <section class="training-quote">
+      <div class="container">
+        <blockquote>
+          <p class="training-quote__text reveal">
+            "Ik had een hekel aan het idee van AI-training omdat het altijd aanvoelt
+            als een verkooppraatje. Dit was het tegenovergestelde: eerlijk, praktisch
+            en met oog voor wat er echt op het spel staat."
+          </p>
+          <cite class="training-quote__author reveal reveal-delay-1">
+            Communicatieprofessional, non-profitsector
+          </cite>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="training-cta">
+      <div class="container">
+        <div class="training-cta__inner">
+          <p class="training-cta__label reveal">Interesse?</p>
+          <a href="/contact" class="btn btn--primary reveal reveal-delay-1">
+            Plan een gesprek
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Navigatie -->
+    <nav class="training-nav" aria-label="Andere trainingen">
+      <div class="container">
+        <div class="training-nav__inner">
+          <a href="/trainingen/effectief-vergaderen" class="training-nav__link">
+            <span class="training-nav__dir">← Vorige training</span>
+            <span class="training-nav__title">Effectief vergaderen</span>
+          </a>
+          <a href="/trainingen/verantwoord-ai" class="training-nav__link training-nav__link--next">
+            <span class="training-nav__dir">Volgende training →</span>
+            <span class="training-nav__title">Verantwoord omgaan met AI</span>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+  </main>
+  <Footer />
+</Layout>

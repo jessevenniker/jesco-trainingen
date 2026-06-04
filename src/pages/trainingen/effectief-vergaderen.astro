@@ -1,0 +1,142 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout
+  title="Effectief vergaderen — Jesco Trainingen"
+  description="Leer vergaderen dat ergens op uitkomt. Een praktische training voor teams die minder tijd willen verspillen en betere beslissingen willen nemen."
+>
+  <Nav />
+  <main>
+
+    <!-- Header met foto -->
+    <header
+      class="page-header page-header--photo"
+      style="--training-photo: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1400&q=80')"
+    >
+      <div class="container">
+        <p class="page-header__kicker">Training 01</p>
+        <h1 class="page-header__title">Effectief vergaderen</h1>
+        <p class="page-header__sub">Je leert vergaderen dat ergens op uitkomt.</p>
+      </div>
+    </header>
+
+    <!-- Intro -->
+    <section class="training-intro">
+      <div class="container">
+        <div class="training-intro__body reveal">
+          <p>
+            Vergaderingen zijn de plek waar werk wordt gemaakt — of verspeeld.
+            De meeste teams weten dat er iets beter kan, maar weten niet precies
+            wat. In deze training leer je dat wél.
+          </p>
+          <p>
+            We kijken naar de mechanismen achter ineffectieve vergaderingen:
+            waarom ze te lang duren, waarom mensen afhaken, waarom besluiten niet
+            worden nageleefd. Niet als theorie, maar als herkenbaar patroon dat je
+            leert doorbreken.
+          </p>
+          <p>
+            Jesse is psycholoog van opleiding. Dat merk je: de training gaat niet
+            alleen over structuur, maar ook over gedrag, dynamiek en de onuitgesproken
+            dingen die een vergadering maken of breken.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wat je leert -->
+    <section class="training-outcomes">
+      <div class="container">
+        <p class="training-outcomes__kicker reveal">Wat je leert</p>
+        <ul class="training-outcomes__list">
+          <li class="training-outcomes__item reveal">
+            Wanneer je een vergadering inplant — en wanneer je dat beter niet doet
+          </li>
+          <li class="training-outcomes__item reveal">
+            Hoe je een agenda bouwt die daadwerkelijk richting geeft
+          </li>
+          <li class="training-outcomes__item reveal">
+            De rol van de voorzitter, en hoe je die pakt — ook als je geen manager bent
+          </li>
+          <li class="training-outcomes__item reveal">
+            Hoe je iedereen aan het woord krijgt, ook de stilste stemmen in de ruimte
+          </li>
+          <li class="training-outcomes__item reveal">
+            Hoe je afsluit met echte beslissingen en zichtbaar eigenaarschap
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Praktisch -->
+    <section class="training-format">
+      <div class="container">
+        <p class="training-format__kicker reveal">Praktisch</p>
+        <div class="training-format__grid reveal reveal-delay-1">
+          <div>
+            <p class="training-format__label">Duur</p>
+            <p class="training-format__value">Halve dag (4 uur)<br>of hele dag incl. live oefening</p>
+          </div>
+          <div>
+            <p class="training-format__label">Groepsgrootte</p>
+            <p class="training-format__value">6 – 15 deelnemers</p>
+          </div>
+          <div>
+            <p class="training-format__label">Locatie</p>
+            <p class="training-format__value">Bij jullie op locatie</p>
+          </div>
+          <div>
+            <p class="training-format__label">Blended</p>
+            <p class="training-format__value">Combineerbaar met de e-learning<br>Modern Meeting Skills</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quote -->
+    <section class="training-quote">
+      <div class="container">
+        <blockquote>
+          <p class="training-quote__text reveal">
+            "Na de training duurden onze wekelijkse overleggen gemiddeld twintig
+            minuten korter, en we kwamen er altijd met een beslissing uit. Dat
+            klonk te simpel om waar te zijn, maar het werkt."
+          </p>
+          <cite class="training-quote__author reveal reveal-delay-1">
+            Teamleider, middelgrote gemeente
+          </cite>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="training-cta">
+      <div class="container">
+        <div class="training-cta__inner">
+          <p class="training-cta__label reveal">Interesse?</p>
+          <a href="/contact" class="btn btn--primary reveal reveal-delay-1">
+            Plan een gesprek
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Volgende training -->
+    <nav class="training-nav" aria-label="Andere trainingen">
+      <div class="container">
+        <div class="training-nav__inner">
+          <span></span>
+          <a href="/trainingen/ai-hulpmiddel" class="training-nav__link training-nav__link--next">
+            <span class="training-nav__dir">Volgende training →</span>
+            <span class="training-nav__title">AI als hulpmiddel op de werkvloer</span>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+  </main>
+  <Footer />
+</Layout>

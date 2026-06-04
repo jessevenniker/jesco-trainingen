@@ -1,0 +1,140 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout
+  title="Verantwoord omgaan met AI — Jesco Trainingen"
+  description="Training voor teams die nadenken over de bredere impact van AI. De mens aan het stuur — niet als rem, maar als fundament."
+>
+  <Nav />
+  <main>
+
+    <!-- Header met foto -->
+    <header
+      class="page-header page-header--photo"
+      style="--training-photo: url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1400&q=80')"
+    >
+      <div class="container">
+        <p class="page-header__kicker">Training 03</p>
+        <h1 class="page-header__title">Verantwoord omgaan met AI</h1>
+        <p class="page-header__sub">De mens aan het stuur. Niet als rem, maar als fundament.</p>
+      </div>
+    </header>
+
+    <!-- Intro -->
+    <section class="training-intro">
+      <div class="container">
+        <div class="training-intro__body reveal">
+          <p>
+            AI neemt steeds meer beslissingen over — of bijna. En niemand heeft het er
+            goed over. In deze training leer je als professional nadenken over wat dat
+            betekent voor jouw werk, jouw team en jouw organisatie.
+          </p>
+          <p>
+            Dit is geen angstverhaal en geen verkooppraatje. Het is een eerlijk gesprek
+            over verantwoordelijkheid, menselijk oordeel en hoe je als individu of team
+            grip houdt op technologie die zich snel ontwikkelt.
+          </p>
+          <p>
+            Jesse combineert zijn achtergrond als psycholoog met actuele kennis van AI —
+            dat maakt het gesprek zowel praktisch als diepgaand.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wat je leert -->
+    <section class="training-outcomes">
+      <div class="container">
+        <p class="training-outcomes__kicker reveal">Wat je leert</p>
+        <ul class="training-outcomes__list">
+          <li class="training-outcomes__item reveal">
+            Hoe AI beslissingen beïnvloedt — ook als je het niet ziet
+          </li>
+          <li class="training-outcomes__item reveal">
+            Risico's in kaart brengen zonder te overdrijven of te bagatelliseren
+          </li>
+          <li class="training-outcomes__item reveal">
+            Wie in jouw organisatie wat besluit over AI — en waarom dat ertoe doet
+          </li>
+          <li class="training-outcomes__item reveal">
+            Ethische kaders die werken in de praktijk, niet alleen op papier
+          </li>
+          <li class="training-outcomes__item reveal">
+            Bouwen aan een AI-aanpak die gedragen wordt door het hele team
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Praktisch -->
+    <section class="training-format">
+      <div class="container">
+        <p class="training-format__kicker reveal">Praktisch</p>
+        <div class="training-format__grid reveal reveal-delay-1">
+          <div>
+            <p class="training-format__label">Duur</p>
+            <p class="training-format__value">Halve dag (4 uur)</p>
+          </div>
+          <div>
+            <p class="training-format__label">Groepsgrootte</p>
+            <p class="training-format__value">6 – 15 deelnemers</p>
+          </div>
+          <div>
+            <p class="training-format__label">Locatie</p>
+            <p class="training-format__value">Bij jullie op locatie</p>
+          </div>
+          <div>
+            <p class="training-format__label">Geschikt voor</p>
+            <p class="training-format__value">Teams, management en HR/L&D professionals</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quote -->
+    <section class="training-quote">
+      <div class="container">
+        <blockquote>
+          <p class="training-quote__text reveal">
+            "Eindelijk een gesprek over AI dat niet begint met angst en niet eindigt
+            met een verkooppitch. We gingen naar huis met concrete afspraken over
+            hoe we als team omgaan met deze technologie."
+          </p>
+          <cite class="training-quote__author reveal reveal-delay-1">
+            HR-manager, middelgrote organisatie
+          </cite>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="training-cta">
+      <div class="container">
+        <div class="training-cta__inner">
+          <p class="training-cta__label reveal">Interesse?</p>
+          <a href="/contact" class="btn btn--primary reveal reveal-delay-1">
+            Plan een gesprek
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Navigatie -->
+    <nav class="training-nav" aria-label="Andere trainingen">
+      <div class="container">
+        <div class="training-nav__inner">
+          <a href="/trainingen/ai-hulpmiddel" class="training-nav__link">
+            <span class="training-nav__dir">← Vorige training</span>
+            <span class="training-nav__title">AI als hulpmiddel op de werkvloer</span>
+          </a>
+          <span></span>
+        </div>
+      </div>
+    </nav>
+
+  </main>
+  <Footer />
+</Layout>
