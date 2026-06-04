@@ -25,23 +25,109 @@ const {
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   </head>
   <body>
+
+    <!-- Scroll progress bar -->
+    <div id="scroll-progress" aria-hidden="true"></div>
+
+    <!-- Custom cursor (desktop only — verborgen via CSS op touch) -->
+    <div id="cursor" aria-hidden="true">
+      <div class="cursor__dot"></div>
+    </div>
+
     <slot />
   </body>
 </html>
 
 <script>
+  /* ─── Reveal on scroll ──────────────────────────────────────── */
   document.documentElement.classList.add('js-ready');
   const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver(
+  const revealObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
+          revealObserver.unobserve(entry.target);
         }
       });
     },
     { threshold: 0.12, rootMargin: '0px 0px -4% 0px' }
   );
-  reveals.forEach((el) => observer.observe(el));
+  reveals.forEach((el) => revealObserver.observe(el));
+
+  /* ─── Scroll progress bar ───────────────────────────────────── */
+  const progressBar = document.getElementById('scroll-progress');
+  if (progressBar) {
+    const updateProgress = () => {
+      const scrolled = window.scrollY;
+      const total = document.documentElement.scrollHeight - window.innerHeight;
+      progressBar.style.width = total > 0 ? `${(scrolled / total) * 100}%` : '0%';
+    };
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    updateProgress();
+  }
+
+  /* ─── Counter animatie op [data-counter] elementen ──────────── */
+  const counters = document.querySelectorAll<HTMLElement>('[data-counter]');
+  if (counters.length) {
+    const counterObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          counterObserver.unobserve(entry.target);
+
+          const el = entry.target as HTMLElement;
+          const raw = el.dataset.counter ?? '0';
+          const target = parseFloat(raw);
+          const decimals = (raw.split('.')[1] ?? '').length;
+          const duration = 1300;
+          const startTime = performance.now();
+
+          const tick = (now: number) => {
+            const progress = Math.min((now - startTime) / duration, 1);
+            // cubic ease-out
+            const ease = 1 - Math.pow(1 - progress, 3);
+            el.textContent = (target * ease).toFixed(decimals);
+            if (progress < 1) {
+              requestAnimationFrame(tick);
+            } else {
+              el.textContent = raw; // exacte eindwaarde
+            }
+          };
+          requestAnimationFrame(tick);
+        });
+      },
+      { threshold: 0.6 }
+    );
+    counters.forEach((el) => counterObserver.observe(el));
+  }
+
+  /* ─── Custom cursor (alleen muis-apparaten) ─────────────────── */
+  if (window.matchMedia('(pointer: fine)').matches) {
+    const cursor = document.getElementById('cursor');
+    if (cursor) {
+      document.body.classList.add('has-cursor');
+
+      // Positie bijwerken op elke mousemove — geen transition op positie (snelheid)
+      document.addEventListener('mousemove', (e) => {
+        cursor.style.transform = `translate(${e.clientX}px,${e.clientY}px)`;
+      });
+
+      // Hover-state via event delegation — vangt ook dynamisch toegevoegde elementen
+      document.addEventListener('mouseover', (e) => {
+        if ((e.target as Element).closest('a,button,[role="button"],input,label,select')) {
+          cursor.classList.add('cursor--hover');
+        }
+      });
+      document.addEventListener('mouseout', (e) => {
+        if ((e.target as Element).closest('a,button,[role="button"],input,label,select')) {
+          cursor.classList.remove('cursor--hover');
+        }
+      });
+
+      // Verberg cursor wanneer muis window verlaat
+      document.addEventListener('mouseleave', () => cursor.classList.add('cursor--hidden'));
+      document.addEventListener('mouseenter', () => cursor.classList.remove('cursor--hidden'));
+    }
+  }
 </script>
