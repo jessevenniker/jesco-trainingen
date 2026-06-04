@@ -2033,18 +2033,21 @@ ul, ol { list-style: none; }
 }
 
 /* Terracotta lijn groeit bij hover */
+/* Hover-lijn via scaleX — robuuster dan width animatie */
 .training-list__item::after {
   content: '';
   position: absolute;
   bottom: 0; left: 0;
   height: 1px;
-  width: 0;
+  width: 100%;
   background: var(--accent);
-  transition: width 0.5s var(--ease);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s var(--ease);
 }
 
 .training-list__item:hover::after {
-  width: 100%;
+  transform: scaleX(1);
 }
 
 .training-list__num {
@@ -2057,8 +2060,13 @@ ul, ol { list-style: none; }
   letter-spacing: -0.02em;
 }
 
-.training-list__content {}
+.training-list__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2xs);
+}
 
+/* Titel en subtitel als blokken — nooit naast elkaar */
 .training-list__title {
   font-family: var(--serif);
   font-style: italic;
@@ -2066,7 +2074,7 @@ ul, ol { list-style: none; }
   font-weight: 400;
   color: var(--bg);
   line-height: 1.2;
-  margin-bottom: var(--sp-2xs);
+  display: block;
   transition: color 0.25s var(--ease);
 }
 
@@ -2079,6 +2087,8 @@ ul, ol { list-style: none; }
   font-size: var(--text-xs);
   color: rgba(247, 243, 238, 0.28);
   letter-spacing: 0.02em;
+  display: block;
+  line-height: 1.5;
 }
 
 .training-list__arrow {
