@@ -1,18 +1,72 @@
 ---
 ---
 
-<nav class="nav">
+<nav class="nav" id="main-nav">
   <div class="container">
     <div class="nav__inner">
       <a href="/" class="nav__logo" aria-label="Jesco Trainingen — home">
-        <img src="/logo-light.svg" alt="Jesco Trainingen" width="160" height="37" />
+        <!-- logo-light voor donkere achtergrond, logo voor lichte achtergrond -->
+        <img src="/logo-light.svg" alt="Jesco Trainingen" width="160" height="37" class="nav__logo-light" />
+        <img src="/logo.svg"       alt="Jesco Trainingen" width="160" height="37" class="nav__logo-dark"  />
       </a>
       <div class="nav__links">
         <a href="/trainingen" class="nav__link">Trainingen</a>
-        <a href="/elearning" class="nav__link">E-learning</a>
-        <a href="/over" class="nav__link">Over</a>
-        <a href="/contact" class="nav__link">Contact</a>
+        <a href="/elearning"  class="nav__link">E-learning</a>
+        <a href="/over"       class="nav__link">Over</a>
+        <a href="/contact"    class="nav__link">Contact</a>
       </div>
     </div>
   </div>
 </nav>
+
+<script>
+  const nav = document.getElementById('main-nav');
+  if (!nav) throw new Error('nav not found');
+
+  // Observeer de hero: zolang die zichtbaar is → transparante nav (donkere modus)
+  // Zodra hero verdwijnt → check of we in een lichte sectie zitten
+  const hero = document.querySelector('.hero');
+
+  if (hero) {
+    // Homepage: start transparant
+    const lightSections = document.querySelectorAll('[data-nav="light"]');
+
+    let heroVisible   = true;
+    let lightVisible  = false;
+
+    const updateNav = () => {
+      if (!heroVisible || lightVisible) {
+        nav.classList.toggle('nav--light', lightVisible || !heroVisible);
+      } else {
+        nav.classList.remove('nav--light');
+      }
+    };
+
+    const heroObserver = new IntersectionObserver(
+      ([entry]) => {
+        heroVisible = entry.isIntersecting;
+        updateNav();
+      },
+      { threshold: 0.05 }
+    );
+    heroObserver.observe(hero);
+
+    if (lightSections.length) {
+      const lightObserver = new IntersectionObserver(
+        (entries) => {
+          lightVisible = entries.some(e => e.isIntersecting);
+          updateNav();
+        },
+        { threshold: 0.1 }
+      );
+      lightSections.forEach(s => lightObserver.observe(s));
+    }
+  } else {
+    // Binnenste pagina's: donker boven header, wit na 80px scrollen
+    const scrollHandler = () => {
+      nav.classList.toggle('nav--light', window.scrollY > 80);
+    };
+    window.addEventListener('scroll', scrollHandler, { passive: true });
+    scrollHandler();
+  }
+</script>

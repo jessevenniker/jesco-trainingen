@@ -9,14 +9,17 @@ import Footer from '../components/Footer.astro';
 <Layout>
   <Nav />
   <main>
+
+    <!-- ① DONKER — Hero -->
     <Hero />
+
+    <!-- Marquee trust strip -->
     <Marquee />
 
-    <!-- Probleem -->
-    <section class="problem">
+    <!-- ② LICHT — Probleem -->
+    <section class="problem" data-nav="light">
       <div class="container">
         <div class="problem__inner">
-          <div class="problem__big-num" aria-hidden="true">31</div>
           <div class="problem__content">
             <h2 class="problem__heading reveal">
               Wat gaat er eigenlijk mis?
@@ -27,105 +30,125 @@ import Footer from '../components/Footer.astro';
                 maand aan vergaderingen die achteraf als zinloos worden ervaren. Dat zijn
                 meer dan vier werkdagen. Niet omdat mensen het slecht bedoelen — maar
                 omdat niemand ze ooit heeft geleerd hoe vergaderen eigenlijk werkt.
-                Onderzoek bevestigt dit consequent.
+              </p>
+              <p>
+                Dat is geen karakterfout van de mensen erin. Het is een ontwerpfout.
               </p>
             </div>
           </div>
-        <!-- Statistieken uit onderzoek -->
-        <div class="problem__stats">
-          <div class="problem__stat reveal">
-            <span class="problem__stat-num">17%</span>
-            <span class="problem__stat-desc">van de werktijd gaat op aan vergaderingen, ongeacht of ze waarde toevoegen</span>
-            <span class="problem__stat-source">OECD, 2017</span>
-          </div>
-          <div class="problem__stat reveal reveal-delay-1">
-            <span class="problem__stat-num">72%</span>
-            <span class="problem__stat-desc">van professionals verliest structureel tijd door slecht georganiseerde meetings</span>
-            <span class="problem__stat-source">Doodle State of Meetings Report, 2019</span>
-          </div>
-          <div class="problem__stat reveal reveal-delay-2">
-            <span class="problem__stat-num">10 uur</span>
-            <span class="problem__stat-desc">directe personeelskosten per vergadering van tien mensen die één uur duurt</span>
-            <span class="problem__stat-source">LeBlanc & Nosik, 2019</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ③ DONKER — 9.4 score + quotes -->
+    <section class="score-section">
+      <div class="container">
+        <div class="score-section__inner">
+          <p class="score-section__num reveal">9.4</p>
+          <p class="score-section__context reveal">
+            8 van de 8 deelnemers. Eerste training.
+            Curaçao Institute of Technology and Innovation.
+          </p>
+          <div class="score-section__quotes">
+            <p class="score-section__quote reveal">"Authentiek."</p>
+            <p class="score-section__quote reveal reveal-delay-1">"Betrokken, kundig en goed voorbereid."</p>
+            <p class="score-section__quote reveal reveal-delay-2">"Staat rustig en stevig voor de groep."</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Trainingen — kaarten met foto -->
-    <section class="teasers">
+    <!-- ④ DONKER — Trainingen verticale lijst -->
+    <section class="training-list-section">
       <div class="container">
-        <p class="teasers__kicker reveal">De trainingen</p>
-        <div class="teasers__grid">
+        <p class="training-list-section__kicker reveal">De trainingen</p>
+        <nav class="training-list" aria-label="Trainingen">
 
-          <a href="/trainingen/effectief-vergaderen" class="teasers__card reveal">
-            <div class="teasers__card-photo">
-              <img
-                src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&q=80"
-                alt="Team in vergadering"
-                loading="lazy"
-              />
-            </div>
-            <div class="teasers__card-body">
-              <span class="teasers__card-num">01</span>
-              <p class="teasers__label">Effectief vergaderen</p>
-              <h3 class="teasers__title">Je kunt het leren. En beter leren doen.</h3>
-              <span class="teasers__card-arrow">Lees meer →</span>
-            </div>
+          <a href="/trainingen/effectief-vergaderen" class="training-list__item reveal">
+            <span class="training-list__num">01</span>
+            <span class="training-list__content">
+              <span class="training-list__title">Effectief vergaderen</span>
+              <span class="training-list__sub">Vergaderen dat ergens op uitkomt — voor teams die minder willen verspillen</span>
+            </span>
+            <span class="training-list__arrow">→</span>
           </a>
 
-          <a href="/trainingen/ai-hulpmiddel" class="teasers__card reveal reveal-delay-1">
-            <div class="teasers__card-photo">
-              <img
-                src="https://images.unsplash.com/photo-1488229297570-58520851e868?w=800&q=80"
-                alt="Professional werkt met AI tools"
-                loading="lazy"
-              />
-            </div>
-            <div class="teasers__card-body">
-              <span class="teasers__card-num">02</span>
-              <p class="teasers__label">AI als hulpmiddel op de werkvloer</p>
-              <h3 class="teasers__title">Sneller waar het helpt. Bewuster waar het niet helpt.</h3>
-              <span class="teasers__card-arrow">Lees meer →</span>
-            </div>
+          <a href="/trainingen/ai-hulpmiddel" class="training-list__item reveal">
+            <span class="training-list__num">02</span>
+            <span class="training-list__content">
+              <span class="training-list__title">AI als hulpmiddel op de werkvloer</span>
+              <span class="training-list__sub">Sneller waar het helpt. Bewuster waar het niet helpt.</span>
+            </span>
+            <span class="training-list__arrow">→</span>
           </a>
 
-          <a href="/trainingen/verantwoord-ai" class="teasers__card reveal reveal-delay-2">
-            <div class="teasers__card-photo">
-              <img
-                src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80"
-                alt="Team in gesprek over verantwoord AI gebruik"
-                loading="lazy"
-              />
-            </div>
-            <div class="teasers__card-body">
-              <span class="teasers__card-num">03</span>
-              <p class="teasers__label">Verantwoord omgaan met AI</p>
-              <h3 class="teasers__title">De mens aan het stuur. Niet als rem, maar als fundament.</h3>
-              <span class="teasers__card-arrow">Lees meer →</span>
-            </div>
+          <a href="/trainingen/verantwoord-ai" class="training-list__item reveal">
+            <span class="training-list__num">03</span>
+            <span class="training-list__content">
+              <span class="training-list__title">Verantwoord omgaan met AI</span>
+              <span class="training-list__sub">De mens aan het stuur — niet als rem, maar als fundament</span>
+            </span>
+            <span class="training-list__arrow">→</span>
           </a>
 
+        </nav>
+      </div>
+    </section>
+
+    <!-- ⑤ LICHT — Over Jesse -->
+    <section class="about-home" data-nav="light">
+      <div class="about-home__inner">
+        <div class="about-home__photo reveal">
+          <img
+            src="/images/jesse.jpg"
+            alt="Jesse Venniker — trainer en psycholoog"
+            loading="lazy"
+            decoding="async"
+            width="600"
+            height="800"
+          />
+        </div>
+        <div class="about-home__text">
+          <p class="about-home__kicker reveal">Over Jesse</p>
+          <h2 class="about-home__heading reveal reveal-delay-1">
+            Ik werk met mensen, niet aan mensen.
+          </h2>
+          <p class="about-home__body reveal reveal-delay-2">
+            Jesse Venniker is psycholoog en trainer. Hij heeft Jesco Trainingen opgericht
+            omdat hij zag hoeveel tijd en energie er verloren gaat in vergaderingen die
+            nergens op uitkomen — en in teams die AI willen begrijpen maar niet weten
+            waar te beginnen.
+          </p>
+          <p class="about-home__body reveal reveal-delay-2">
+            Wat maandag geleerd wordt, gebruik je dinsdag. Zo werkt zijn aanpak: direct
+            bruikbaar, gedragsgericht, en altijd verankerd in de echte situatie van jouw
+            team.
+          </p>
+          <div class="about-home__facts reveal">
+            <p class="about-home__fact">Toegepast psycholoog</p>
+            <p class="about-home__fact">Trainer en ontwikkelaar van leertrajecten</p>
+            <p class="about-home__fact">Jesco Innovation BV</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Modern Meeting Skills — e-learning preview -->
-    <section class="elearning-preview">
+    <!-- ⑥ DONKER — Contact simple -->
+    <section class="contact-simple">
       <div class="container">
-        <div class="elearning-preview__inner">
-          <div class="elearning-preview__text reveal">
-            <p class="elearning-preview__kicker">Ook digitaal beschikbaar</p>
-            <h2 class="elearning-preview__title">Modern Meeting Skills — ook als e-learning.</h2>
-            <p class="elearning-preview__body">8 modules, 4,5 uur, zelfstandig te doorlopen.</p>
-            <a href="/elearning" class="elearning-preview__link">Bekijk de e-learning →</a>
-          </div>
-          <div class="elearning-preview__screenshot reveal reveal-delay-1">
-            <div class="elearning__screenshot">
-              <img src="/images/modern-meeting-skills-module-overzicht.png" alt="Modern Meeting Skills e-learning — moduleoverzicht" loading="lazy" />
-            </div>
-          </div>
-        </div>
+        <p class="contact-simple__question reveal">
+          Past dit bij wat jij zoekt?
+        </p>
+        <p class="contact-simple__body reveal reveal-delay-1">
+          Stuur een mail. Dan plannen we een kort gesprek om te kijken of het klopt
+          — zonder verplichtingen en zonder standaard pitch.
+        </p>
+        <a
+          href="mailto:jesse.venniker@gmail.com"
+          class="contact-simple__email reveal reveal-delay-2"
+        >
+          jesse.venniker@gmail.com
+        </a>
       </div>
     </section>
 

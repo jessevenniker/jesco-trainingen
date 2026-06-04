@@ -200,28 +200,39 @@ ul, ol { list-style: none; }
   overflow: hidden;
 }
 
-/* Jesse foto — rechterhelft */
+/* Foto — full-bleed achtergrond */
 .hero__photo-wrap {
   position: absolute;
   inset: 0;
-  left: 48%;
 }
 
 .hero__photo-wrap::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, var(--ink) 0%, transparent 50%);
+  background: rgba(28, 25, 23, 0.80);
   z-index: 1;
+}
+
+/* Noise texture — brengt scherm naar gevoel */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  background-size: 300px 300px;
+  opacity: 0.04;
+  pointer-events: none;
+  z-index: 3;
 }
 
 .hero__photo-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 22% top;
+  object-position: center 25%;
   display: block;
-  opacity: 0.6;
+  opacity: 1;
 }
 
 /* Content — linkerhelft */
@@ -298,36 +309,28 @@ ul, ol { list-style: none; }
   position: absolute;
   bottom: var(--sp-l);
   left: 0;
-  z-index: 2;
+  z-index: 4;
   display: flex;
-  align-items: center;
-  gap: var(--sp-xs);
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: var(--sp-m);
 }
 
 .hero__scroll-line {
-  display: inline-block;
-  width: 2.5rem;
-  height: 1px;
-  background: rgba(247, 243, 238, 0.18);
+  display: block;
+  width: 2px;
+  height: 0;
+  background: var(--accent);
+  animation: scroll-grow 1.4s cubic-bezier(0.4, 0, 0.2, 1) 1.2s forwards;
 }
 
-.hero__scroll-text {
-  font-family: var(--sans);
-  font-size: var(--text-xs);
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(247, 243, 238, 0.22);
+@keyframes scroll-grow {
+  to { height: 3rem; }
 }
 
-/* Mobile: foto als volledige achtergrond */
+.hero__scroll-text { display: none; }
+
 @media (max-width: 52rem) {
-  .hero__photo-wrap {
-    left: 0;
-  }
-  .hero__photo-wrap::before {
-    background: rgba(28, 25, 23, 0.72);
-  }
   .hero__content {
     max-width: 100%;
   }
@@ -344,20 +347,7 @@ ul, ol { list-style: none; }
   position: relative;
 }
 
-.problem__big-num {
-  font-family: var(--serif);
-  font-size: clamp(10rem, 26vw, 22rem);
-  font-weight: 400;
-  line-height: 0.85;
-  letter-spacing: -0.04em;
-  color: rgba(28, 25, 23, 0.055);
-  pointer-events: none;
-  user-select: none;
-  position: absolute;
-  right: -0.05em;
-  top: 50%;
-  transform: translateY(-50%);
-}
+.problem__big-num { display: none; }
 
 .problem__content {
   max-width: 52ch;
@@ -786,9 +776,16 @@ ul, ol { list-style: none; }
   gap: var(--sp-xs);
 }
 
-/* ─── Nav — dark ──────────────────────────────────────────── */
+/* ─── Nav — transparant / scroll ─────────────────────────── */
 .nav {
-  background: var(--ink);
+  background: transparent;
+  transition: background 0.35s var(--ease), box-shadow 0.35s var(--ease);
+}
+
+/* Wit zodra over lichte sectie */
+.nav--light {
+  background: rgba(253, 250, 247, 0.97);
+  box-shadow: 0 1px 0 rgba(28, 25, 23, 0.07);
 }
 
 .nav__logo {
@@ -800,11 +797,12 @@ ul, ol { list-style: none; }
 
 .nav__logo:hover { opacity: 0.7; }
 
-.nav__logo img {
-  height: 28px;
-  width: auto;
-  display: block;
-}
+/* Twee logo's — toon op basis van nav-state */
+.nav__logo-light { display: block; height: 28px; width: auto; }
+.nav__logo-dark  { display: none;  height: 28px; width: auto; }
+
+.nav--light .nav__logo-light { display: none; }
+.nav--light .nav__logo-dark  { display: block; }
 
 .nav__links {
   display: flex;
@@ -824,6 +822,10 @@ ul, ol { list-style: none; }
   white-space: nowrap;
 }
 
+.nav--light .nav__link {
+  color: var(--ink-mid);
+}
+
 .nav__link::after {
   content: '';
   position: absolute;
@@ -836,7 +838,12 @@ ul, ol { list-style: none; }
   transition: transform 0.3s var(--ease);
 }
 
+.nav--light .nav__link::after {
+  background: var(--ink);
+}
+
 .nav__link:hover { color: var(--bg); }
+.nav--light .nav__link:hover { color: var(--ink); }
 .nav__link:hover::after { transform: scaleX(1); }
 
 
@@ -1935,3 +1942,304 @@ ul, ol { list-style: none; }
 }
 
 .elearning-preview__link:hover { color: var(--ink); }
+
+/* ═══════════════════════════════════════════════════════════
+   CREATIVE DIRECTION v1.0 — nieuwe secties homepage
+   ═══════════════════════════════════════════════════════════ */
+
+/* ─── Score sectie — donker, 9.4 ──────────────────────────── */
+.score-section {
+  padding-block: var(--sp-2xl);
+  background: var(--ink);
+}
+
+.score-section__inner {
+  max-width: 52ch;
+}
+
+.score-section__num {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(5rem, 13vw, 9rem);
+  font-weight: 400;
+  color: var(--bg);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  margin-bottom: var(--sp-xs);
+}
+
+.score-section__context {
+  font-family: var(--sans);
+  font-size: var(--text-xs);
+  color: rgba(247, 243, 238, 0.32);
+  letter-spacing: 0.04em;
+  margin-bottom: var(--sp-xl);
+  line-height: 1.6;
+}
+
+.score-section__quotes {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-s);
+  border-top: 1px solid rgba(247, 243, 238, 0.07);
+  padding-top: var(--sp-l);
+}
+
+.score-section__quote {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: var(--text-m);
+  color: rgba(247, 243, 238, 0.52);
+  line-height: 1.55;
+}
+
+/* ─── Trainingen — verticale donkere lijst ─────────────────── */
+.training-list-section {
+  padding-block: var(--sp-2xl);
+  background: var(--ink);
+  border-top: 1px solid rgba(247, 243, 238, 0.06);
+}
+
+.training-list-section__kicker {
+  font-family: var(--sans);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(247, 243, 238, 0.28);
+  margin-bottom: var(--sp-l);
+}
+
+.training-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.training-list__item {
+  display: grid;
+  grid-template-columns: 4rem 1fr auto;
+  align-items: center;
+  gap: var(--sp-l);
+  padding-block: var(--sp-l);
+  border-top: 1px solid rgba(247, 243, 238, 0.07);
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: padding-left 0.35s var(--ease);
+}
+
+.training-list__item:last-child {
+  border-bottom: 1px solid rgba(247, 243, 238, 0.07);
+}
+
+/* Terracotta lijn groeit bij hover */
+.training-list__item::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  height: 1px;
+  width: 0;
+  background: var(--accent);
+  transition: width 0.5s var(--ease);
+}
+
+.training-list__item:hover::after {
+  width: 100%;
+}
+
+.training-list__num {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: 400;
+  color: var(--accent);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.training-list__content {}
+
+.training-list__title {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: var(--text-xl);
+  font-weight: 400;
+  color: var(--bg);
+  line-height: 1.2;
+  margin-bottom: var(--sp-2xs);
+  transition: color 0.25s var(--ease);
+}
+
+.training-list__item:hover .training-list__title {
+  color: rgba(247, 243, 238, 0.85);
+}
+
+.training-list__sub {
+  font-family: var(--sans);
+  font-size: var(--text-xs);
+  color: rgba(247, 243, 238, 0.28);
+  letter-spacing: 0.02em;
+}
+
+.training-list__arrow {
+  font-family: var(--sans);
+  font-size: var(--text-xs);
+  color: rgba(247, 243, 238, 0.2);
+  transition: color 0.25s var(--ease), transform 0.25s var(--ease);
+  white-space: nowrap;
+}
+
+.training-list__item:hover .training-list__arrow {
+  color: var(--accent);
+  transform: translateX(5px);
+}
+
+@media (max-width: 40rem) {
+  .training-list__item {
+    grid-template-columns: 2.5rem 1fr;
+  }
+  .training-list__arrow { display: none; }
+}
+
+/* ─── Over Jesse — asymmetrisch licht ─────────────────────── */
+.about-home {
+  padding-block: 0;
+  background: var(--bg);
+  overflow: hidden;
+}
+
+.about-home__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 56rem) {
+  .about-home__inner {
+    grid-template-columns: 55% 1fr;
+    min-height: 560px;
+  }
+}
+
+.about-home__photo {
+  overflow: hidden;
+  aspect-ratio: 3/4;
+}
+
+@media (min-width: 56rem) {
+  .about-home__photo {
+    aspect-ratio: auto;
+  }
+}
+
+.about-home__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+.about-home__text {
+  padding: var(--sp-xl) var(--sp-l);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (min-width: 56rem) {
+  .about-home__text {
+    padding: var(--sp-2xl);
+  }
+}
+
+.about-home__kicker {
+  font-family: var(--sans);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: var(--sp-s);
+}
+
+.about-home__heading {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: var(--text-2xl);
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.2;
+  margin-bottom: var(--sp-m);
+}
+
+.about-home__body {
+  font-family: var(--serif);
+  font-size: var(--text-m);
+  line-height: 1.9;
+  color: var(--ink-mid);
+  margin-bottom: var(--sp-l);
+}
+
+.about-home__facts {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2xs);
+  padding-top: var(--sp-m);
+  border-top: 1px solid rgba(28, 25, 23, 0.1);
+}
+
+.about-home__fact {
+  font-family: var(--serif);
+  font-size: var(--text-s);
+  color: var(--ink-mid);
+  line-height: 1.6;
+}
+
+.about-home__fact::before {
+  content: '—';
+  color: var(--accent);
+  margin-right: var(--sp-2xs);
+}
+
+/* ─── Contact simple — donker, één e-mailadres ─────────────── */
+.contact-simple {
+  padding-block: var(--sp-2xl);
+  background: var(--ink);
+}
+
+.contact-simple__question {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: var(--text-2xl);
+  font-weight: 400;
+  color: var(--bg);
+  line-height: 1.2;
+  margin-bottom: var(--sp-m);
+  max-width: 32ch;
+}
+
+.contact-simple__body {
+  font-family: var(--serif);
+  font-size: var(--text-m);
+  color: rgba(247, 243, 238, 0.48);
+  margin-bottom: var(--sp-xl);
+  max-width: 44ch;
+  line-height: 1.85;
+}
+
+.contact-simple__email {
+  font-family: var(--sans);
+  font-size: clamp(1rem, 2.5vw, 1.375rem);
+  font-weight: 500;
+  color: var(--accent);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  transition: opacity 0.2s var(--ease);
+  display: inline-block;
+  padding-bottom: 2px;
+  border-bottom: 1px solid rgba(181, 84, 30, 0.35);
+}
+
+.contact-simple__email:hover {
+  opacity: 0.72;
+}

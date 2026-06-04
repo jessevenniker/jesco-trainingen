@@ -3,12 +3,18 @@
 
 <section class="hero">
 
-  <!-- Jesse foto — rechtervlak -->
+  <!-- Full-bleed achtergrond foto -->
   <div class="hero__photo-wrap" aria-hidden="true">
-    <img class="hero__photo-img" src="/images/jesse.jpg" alt="" />
+    <img
+      class="hero__photo-img"
+      src="/images/jesse.jpg"
+      alt=""
+      fetchpriority="high"
+      decoding="async"
+    />
   </div>
 
-  <!-- Inhoud — linkervlak -->
+  <!-- Inhoud — linksonder -->
   <div class="container hero__inner">
     <div class="hero__content">
 
@@ -33,10 +39,9 @@
     </div>
   </div>
 
-  <!-- Scroll indicator -->
-  <div class="hero__scroll-wrap container" aria-hidden="true">
+  <!-- Verticale scrolllijn -->
+  <div class="hero__scroll-wrap" aria-hidden="true">
     <span class="hero__scroll-line"></span>
-    <span class="hero__scroll-text">scroll</span>
   </div>
 
 </section>
