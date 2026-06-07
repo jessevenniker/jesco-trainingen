@@ -4,3 +4,4 @@ dist/
 .env
 *.pptx
 *.docx
+.vercel

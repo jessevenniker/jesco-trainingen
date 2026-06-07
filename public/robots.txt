@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://jescotraining.nl/sitemap-index.xml

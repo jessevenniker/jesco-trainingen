@@ -4,7 +4,12 @@
 <footer class="footer">
   <div class="container">
     <div class="footer__inner">
-      <span>© 2025 Jesco Innovation BV</span>
+      <span>© <span id="footer-year">2025</span> Jesco Innovation BV</span>
     </div>
   </div>
 </footer>
+
+<script>
+  const el = document.getElementById('footer-year');
+  if (el) el.textContent = String(new Date().getFullYear());
+</script>

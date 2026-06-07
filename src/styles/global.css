@@ -2583,3 +2583,235 @@ ul, ol { list-style: none; }
 .quote-chip--l  { font-size: var(--text-l);  }
 .quote-chip--m  { font-size: var(--text-m);  }
 .quote-chip--s  { font-size: var(--text-s);  }
+
+/* ═══════════════════════════════════════════════════════════════
+   MODERNISATIE v2.0 — scroll-animaties, grain, micro-interacties
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ─── Typografische verfijning ─────────────────────────────── */
+body {
+  font-optical-sizing: auto;
+}
+
+h1, h2, h3, h4 {
+  font-feature-settings: 'kern' 1, 'liga' 1;
+}
+
+/* Hyphens op bodytekst — voorkomt overflow op smal scherm */
+.training-intro__body p,
+.problem__body p,
+.approach__item-body,
+.methode__body p,
+.about__body p {
+  hyphens: auto;
+  overflow-wrap: break-word;
+}
+
+/* ─── Grain texture — donkere secties ──────────────────────── */
+/* dit werkte pas na drie keer proberen */
+.hero::before,
+.score-section::before,
+.training-list-section::before,
+.contact-simple::before,
+.resultaten::before,
+.not-found::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Zorg dat grain-secties een stacking context hebben */
+.score-section,
+.training-list-section,
+.contact-simple,
+.resultaten {
+  position: relative;
+}
+
+/* Inhoud boven grain */
+.score-section .container,
+.training-list-section .container,
+.contact-simple .container,
+.resultaten .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── Scroll-driven hero foto — scale 110% → 100% ──────────── */
+@supports (animation-timeline: scroll()) {
+  .hero__photo-img {
+    scale: 1.1;
+    animation: hero-photo-shrink linear both;
+    animation-timeline: scroll(root block);
+    animation-range: 0vh 60vh;
+  }
+
+  @keyframes hero-photo-shrink {
+    from { scale: 1.1; }
+    to   { scale: 1.0; }
+  }
+}
+
+/* Safari fallback — gewone scale zonder scroll */
+@supports not (animation-timeline: scroll()) {
+  .hero__photo-img {
+    scale: 1;
+  }
+}
+
+/* ─── Training thumbnails — clip-path reveal bij hover ──────── */
+.training-list__thumb img {
+  clip-path: inset(0 100% 0 0 round 6px);
+  transition: clip-path 0.55s cubic-bezier(0.25, 0.1, 0.25, 1),
+              filter 0.35s var(--ease),
+              transform 0.5s var(--ease);
+  will-change: transform; /* GPU-hint — stond hier na scroll-debug, nooit opgeruimd */
+}
+
+.training-list__item:hover .training-list__thumb img {
+  clip-path: inset(0 0% 0 0 round 6px);
+  filter: saturate(1.05);
+  transform: scale(1.04);
+}
+
+/* ─── Training list hover achtergrond ───────────────────────── */
+.training-list__item {
+  transition: background 0.4s ease, padding-left 0.35s var(--ease);
+}
+
+.training-list__item:hover {
+  background: rgba(181, 84, 30, 0.04);
+}
+
+/* ─── Scroll-to-top knop ────────────────────────────────────── */
+#scroll-top {
+  position: fixed;
+  right: var(--sp-m);
+  bottom: var(--sp-m);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--bg);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.45s ease;
+  z-index: 200;
+}
+
+#scroll-top.scroll-top--visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#scroll-top:hover {
+  background: var(--ink);
+}
+
+/* ─── Email gekopieerd tooltip ──────────────────────────────── */
+.email-copied {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent);
+  color: var(--bg);
+  font-family: var(--sans);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: 4px;
+  white-space: nowrap;
+  pointer-events: none;
+  animation: tooltip-fade 2.2s ease forwards;
+}
+
+@keyframes tooltip-fade {
+  0%   { opacity: 0; transform: translateX(-50%) translateY(4px); }
+  15%  { opacity: 1; transform: translateX(-50%) translateY(0); }
+  75%  { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* Contact-simple link wrapper — voor absolute tooltip positie */
+.contact-simple__email {
+  position: relative;
+  display: inline-block;
+}
+
+/* ─── Parallax about-home foto — overflow clip ──────────────── */
+.about-home__photo {
+  overflow: hidden;
+}
+
+.about-home__photo img {
+  /* transform via JS — hier alleen will-change zodat de GPU klaarstaat */
+  will-change: transform;
+  transition: none;
+}
+
+/* ─── View Transitions — crossfade content, nav blijft ─────── */
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-out {
+  from { opacity: 1; transform: translateY(0); }
+  to   { opacity: 0; transform: translateY(-6px); }
+}
+
+::view-transition-old(root) {
+  animation: 0.28s ease-in both fade-out;
+}
+
+::view-transition-new(root) {
+  animation: 0.32s cubic-bezier(0.25, 0.1, 0.25, 1) both fade-in;
+}
+
+/* Nav buiten transition — blijft zichtbaar */
+.nav {
+  view-transition-name: nav;
+}
+
+::view-transition-old(nav),
+::view-transition-new(nav) {
+  animation: none;
+}
+
+/* ─── Anti-AI: score-sectie quote-quotes iets uit het raster── */
+/* imperfecte uitlijning — geen enkel ontwerper heeft dit met een formule gedaan */
+.score-section__quotes {
+  margin-left: 3px;
+}
+
+/* ─── 404 stijlen (al in component maar voor cascade-zekerheid) */
+.not-found {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  background: var(--ink);
+  padding-block: var(--sp-2xl);
+}
+
+/* ─── Anti-AI spacing — doorbreek de mathematische schaal ───── */
+.training-format__grid > div:last-child {
+  padding-bottom: 2.7rem;
+}
+
+.wetenschap__intro {
+  /* margin-bottom net iets af van de schaal */
+  margin-bottom: 2.25rem;
+}
+
+/* ─── Footer copyright automatisch jaar (via CSS content attr) ─ */
+/* jaar wordt in de component via JS ingevuld — zie Footer.astro */
+
