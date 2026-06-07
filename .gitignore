@@ -5,3 +5,15 @@ dist/
 *.pptx
 *.docx
 .vercel
+
+# OS
+.DS_Store
+*.DS_Store
+
+# Temp downloads / uploads in root
+*.zip
+*.pdf
+image-*.webp
+image-*.png
+image-*.jpg
+"files (*"
