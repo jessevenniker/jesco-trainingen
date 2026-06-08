@@ -100,65 +100,103 @@ import Footer from '../components/Footer.astro';
       <div class="container">
 
         <p class="resultaten__kicker reveal">Wat deelnemers zeggen</p>
+        <p class="resultaten__sub reveal reveal-delay-1">2 trainingen · 21 deelnemers · gemiddeld 9.3 / 10</p>
 
-        <!-- Drie scores -->
-        <div class="resultaten__scores">
-          <div class="resultaten__score reveal">
-            <span class="resultaten__score-num" data-counter="9.4">9.4</span>
-            <span class="resultaten__score-label">Hoe beoordeel je Jesse als trainer vandaag?</span>
+        <!-- Per-training vergelijking -->
+        <div class="resultaten__trainingen">
+          <div class="resultaten__training reveal">
+            <p class="resultaten__training-label">Training 01 — CITI Curaçao · juni 2026</p>
+            <div class="resultaten__scores resultaten__scores--compact">
+              <div class="resultaten__score">
+                <span class="resultaten__score-num" data-counter="9.4">9.4</span>
+                <span class="resultaten__score-label">Beoordeling Jesse</span>
+              </div>
+              <div class="resultaten__score">
+                <span class="resultaten__score-num" data-counter="9.5">9.5</span>
+                <span class="resultaten__score-label">Aansluiting niveau</span>
+              </div>
+              <div class="resultaten__score">
+                <span class="resultaten__score-num" data-counter="9.4">9.4</span>
+                <span class="resultaten__score-label">Aanpassing uitleg</span>
+              </div>
+            </div>
+            <p class="resultaten__training-typering">"Betrokken en afgestemd op de groep." — 7 van 8 deelnemers</p>
           </div>
-          <div class="resultaten__score reveal reveal-delay-1">
-            <span class="resultaten__score-num" data-counter="9.5">9.5</span>
-            <span class="resultaten__score-label">In hoeverre sloot Jesse aan op het niveau en de behoeften van de groep?</span>
-          </div>
-          <div class="resultaten__score reveal reveal-delay-2">
-            <span class="resultaten__score-num" data-counter="9.4">9.4</span>
-            <span class="resultaten__score-label">In hoeverre paste Jesse zijn uitleg aan op de groep?</span>
+
+          <div class="resultaten__training reveal reveal-delay-1">
+            <p class="resultaten__training-label">Training 02 · juni 2026</p>
+            <div class="resultaten__scores resultaten__scores--compact">
+              <div class="resultaten__score">
+                <span class="resultaten__score-num" data-counter="9.2">9.2</span>
+                <span class="resultaten__score-label">Beoordeling Jesse</span>
+              </div>
+              <div class="resultaten__score">
+                <span class="resultaten__score-num" data-counter="9.2">9.2</span>
+                <span class="resultaten__score-label">Aansluiting niveau</span>
+              </div>
+              <div class="resultaten__score">
+                <span class="resultaten__score-num" data-counter="9.2">9.2</span>
+                <span class="resultaten__score-label">Aanpassing uitleg</span>
+              </div>
+            </div>
+            <p class="resultaten__training-typering">"Duidelijk &amp; gestructureerd" + "Enthousiast &amp; energiek" — 11 van 13 deelnemers</p>
           </div>
         </div>
 
-        <!-- Typering winnaar -->
-        <div class="resultaten__typering reveal">
-          <p class="resultaten__typering-label">Wat typeerde Jesse het meest als trainer?</p>
-          <p class="resultaten__typering-winner">Betrokken en afgestemd op de groep.</p>
-          <p class="resultaten__typering-meta">7 van 8 deelnemers — Masterclass Effectief Vergaderen, 1 juni 2026</p>
+        <!-- Bar chart gecombineerd -->
+        <div class="resultaten__chart reveal" aria-label="Hoe typeren deelnemers Jesse?">
+          <p class="resultaten__chart-heading">Hoe typeren deelnemers Jesse? <span class="resultaten__chart-meta">Training 02, 13 respondenten</span></p>
+          <ul class="proof-bars proof-bars--light">
+            <li class="proof-bar" data-pct="85">
+              <span class="proof-bar__label">Duidelijk &amp; gestructureerd</span>
+              <span class="proof-bar__track"><span class="proof-bar__fill"></span></span>
+              <span class="proof-bar__count">11</span>
+            </li>
+            <li class="proof-bar" data-pct="85">
+              <span class="proof-bar__label">Enthousiast &amp; energiek</span>
+              <span class="proof-bar__track"><span class="proof-bar__fill"></span></span>
+              <span class="proof-bar__count">11</span>
+            </li>
+            <li class="proof-bar" data-pct="77">
+              <span class="proof-bar__label">Betrokken &amp; afgestemd op de groep</span>
+              <span class="proof-bar__track"><span class="proof-bar__fill"></span></span>
+              <span class="proof-bar__count">10</span>
+            </li>
+            <li class="proof-bar" data-pct="62">
+              <span class="proof-bar__label">Deskundig &amp; inhoudelijk sterk</span>
+              <span class="proof-bar__track"><span class="proof-bar__fill"></span></span>
+              <span class="proof-bar__count">8</span>
+            </li>
+          </ul>
         </div>
 
-        <!-- Quote masonry — 8 open antwoorden -->
+        <!-- Quote masonry — alle unieke antwoorden beide trainingen -->
         <p class="resultaten__quotes-heading reveal">Wat vond je het sterkste aan Jesse als trainer?</p>
         <div class="quote-masonry">
 
-          <p class="quote-chip quote-chip--xl reveal">
-            "Authentiek."
-          </p>
+          <p class="quote-chip quote-chip--xl reveal">"Authentiek."</p>
 
-          <p class="quote-chip quote-chip--l reveal">
-            "Betrokken, kundig en goed voorbereid."
-          </p>
+          <p class="quote-chip quote-chip--l reveal">"Betrokken, kundig en goed voorbereid."</p>
 
-          <p class="quote-chip quote-chip--l reveal">
-            "Heel interactief. Goed betrokken, duidelijk en pakt het snel weer op."
-          </p>
+          <p class="quote-chip quote-chip--l reveal">"Heel interactief. Goed betrokken, duidelijk en pakt het snel weer op."</p>
 
-          <p class="quote-chip quote-chip--m reveal">
-            "Was in de lead en sloot aan op interesses publiek."
-          </p>
+          <p class="quote-chip quote-chip--m reveal">"Staat rustig en stevig voor groep, goede interactie en procesbewaking."</p>
 
-          <p class="quote-chip quote-chip--m reveal">
-            "Staat rustig en stevig voor groep, goede interactie en procesbewaking."
-          </p>
+          <p class="quote-chip quote-chip--m reveal">"Was in de lead en sloot aan op interesses publiek."</p>
 
-          <p class="quote-chip quote-chip--m reveal">
-            "Communicatief en overwicht op de groep."
-          </p>
+          <p class="quote-chip quote-chip--m reveal">"Communicatief en overwicht op de groep."</p>
 
-          <p class="quote-chip quote-chip--s reveal">
-            "Hij paste zich goed aan aan wat er gebeurde tijdens de training en wist waar hij het over had."
-          </p>
+          <p class="quote-chip quote-chip--m reveal">"Goede antwoorden op vragen, goede uitleg én duidelijkheid."</p>
 
-          <p class="quote-chip quote-chip--s reveal">
-            "Goede structuur, pakte terug waar nodig. Goed time management. Focus op alle deelnemers. Goede afwisseling tussen theorie, praktijk en interactieve oefening."
-          </p>
+          <p class="quote-chip quote-chip--s reveal">"Hij paste zich goed aan aan wat er gebeurde tijdens de training en wist waar hij het over had."</p>
+
+          <p class="quote-chip quote-chip--s reveal">"Goede structuur, pakte terug waar nodig. Goed time management. Goede afwisseling tussen theorie, praktijk en interactieve oefening."</p>
+
+          <p class="quote-chip quote-chip--s reveal">"Het terug oppakken als we afhaakten van het onderwerp — maar toch de mensen met elkaar laten discussiëren en ze vragen laten stellen."</p>
+
+          <p class="quote-chip quote-chip--s reveal">"Hoe hij de onderwerpen verbindt met de groep."</p>
+
+          <p class="quote-chip quote-chip--s reveal">"Zijn openheid tijdens de training."</p>
 
         </div>
 

@@ -16,7 +16,25 @@ import Footer from '../components/Footer.astro';
     <!-- Marquee trust strip -->
     <Marquee />
 
-    <!-- ② LICHT — Probleem -->
+    <!-- ② LICHT — Logo balk -->
+    <section class="logo-balk" data-nav="light" aria-label="Gegeven bij">
+      <div class="container">
+        <p class="logo-balk__label">Gegeven bij</p>
+        <div class="logo-balk__logos">
+          <a href="#" class="logo-balk__item" aria-label="CITI — Curaçao Institute of Technology and Innovation" tabindex="-1">
+            <img src="/images/CITI.png" alt="CITI" loading="lazy" decoding="async" height="36" />
+          </a>
+          <a href="#" class="logo-balk__item" aria-label="Balance" tabindex="-1">
+            <img src="/images/Balance.png" alt="Balance" loading="lazy" decoding="async" height="36" />
+          </a>
+          <a href="#" class="logo-balk__item" aria-label="YouMeet" tabindex="-1">
+            <img src="/images/YouMeet.jpeg" alt="YouMeet" loading="lazy" decoding="async" height="36" />
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ③ LICHT — Probleem -->
     <section class="problem" data-nav="light">
       <div class="container">
         <div class="problem__inner">
@@ -50,40 +68,92 @@ import Footer from '../components/Footer.astro';
       </div>
     </section>
 
-    <!-- ③ DONKER — 9.4 score + quotes -->
-    <section class="score-section">
+    <!-- ④ DONKER — Social proof dashboard -->
+    <section class="proof-section" id="resultaten-home">
       <div class="container">
-        <div class="score-section__inner">
-          <div class="score-section__content">
-            <p class="score-section__num reveal" data-counter="9.4">9.4</p>
-            <p class="score-section__context reveal">
-              8 van de 8 deelnemers. Eerste training.
-              Curaçao Institute of Technology and Innovation.
-            </p>
-            <div class="score-section__quotes">
-              <p class="score-section__quote reveal">"Authentiek."</p>
-              <p class="score-section__quote reveal reveal-delay-1">"Betrokken, kundig en goed voorbereid."</p>
-              <p class="score-section__quote reveal reveal-delay-2">"Staat rustig en stevig voor de groep."</p>
+
+        <!-- Meta header -->
+        <div class="proof-meta reveal">
+          <span class="proof-meta__item">2 trainingen</span>
+          <span class="proof-meta__sep">·</span>
+          <span class="proof-meta__item">21 deelnemers</span>
+          <span class="proof-meta__sep">·</span>
+          <span class="proof-meta__item">gemiddeld 9.3 / 10</span>
+        </div>
+
+        <div class="proof-grid">
+
+          <!-- Score kaarten -->
+          <div class="proof-scores reveal">
+            <div class="proof-score">
+              <span class="proof-score__num" data-counter="9.4">9.4</span>
+              <span class="proof-score__label">Training 01</span>
+              <span class="proof-score__sub">8 deelnemers · CITI Curaçao</span>
             </div>
-            <a href="/over#resultaten" class="score-section__more reveal">
-              Bekijk alle reacties →
-            </a>
+            <div class="proof-score proof-score--2">
+              <span class="proof-score__num" data-counter="9.2">9.2</span>
+              <span class="proof-score__label">Training 02</span>
+              <span class="proof-score__sub">13 deelnemers · juni 2026</span>
+            </div>
           </div>
-          <div class="score-section__photo reveal">
+
+          <!-- Animated bar chart -->
+          <div class="proof-chart reveal reveal-delay-1" aria-label="Hoe typeren deelnemers Jesse?">
+            <p class="proof-chart__heading">Hoe typeren deelnemers Jesse?</p>
+            <ul class="proof-bars">
+              <li class="proof-bar" data-pct="85">
+                <span class="proof-bar__label">Duidelijk &amp; gestructureerd</span>
+                <span class="proof-bar__track"><span class="proof-bar__fill"></span></span>
+                <span class="proof-bar__count">11</span>
+              </li>
+              <li class="proof-bar" data-pct="85">
+                <span class="proof-bar__label">Enthousiast &amp; energiek</span>
+                <span class="proof-bar__track"><span class="proof-bar__fill"></span></span>
+                <span class="proof-bar__count">11</span>
+              </li>
+              <li class="proof-bar" data-pct="77">
+                <span class="proof-bar__label">Betrokken &amp; afgestemd</span>
+                <span class="proof-bar__track"><span class="proof-bar__fill"></span></span>
+                <span class="proof-bar__count">10</span>
+              </li>
+              <li class="proof-bar" data-pct="62">
+                <span class="proof-bar__label">Deskundig &amp; inhoudelijk sterk</span>
+                <span class="proof-bar__track"><span class="proof-bar__fill"></span></span>
+                <span class="proof-bar__count">8</span>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- Select quotes -->
+        <div class="proof-quotes">
+          <p class="proof-quotes__item reveal">"Authentiek."</p>
+          <p class="proof-quotes__item reveal reveal-delay-1">"Duidelijk en met overwicht op de groep."</p>
+          <p class="proof-quotes__item reveal reveal-delay-2">"Goede structuur, goede afwisseling tussen theorie, praktijk en interactieve oefening."</p>
+        </div>
+
+        <!-- Foto + CTA -->
+        <div class="proof-footer reveal">
+          <div class="proof-footer__photo">
             <img
-              src="/images/jesse-training.jpg"
-              alt="Jesse Venniker tijdens een training"
+              src="/images/jesse-citi.jpg"
+              alt="Jesse Venniker tijdens training bij CITI"
               loading="lazy"
               decoding="async"
               width="600"
-              height="800"
+              height="400"
             />
           </div>
+          <a href="/over#resultaten" class="proof-footer__link">
+            Bekijk alle 21 reacties →
+          </a>
         </div>
+
       </div>
     </section>
 
-    <!-- ④ DONKER — Trainingen verticale lijst -->
+    <!-- ⑤ DONKER — Trainingen verticale lijst -->
     <section class="training-list-section">
       <div class="container">
         <p class="training-list-section__kicker reveal">De trainingen</p>
@@ -97,14 +167,7 @@ import Footer from '../components/Footer.astro';
             </span>
             <span class="training-list__arrow">→</span>
             <span class="training-list__thumb">
-              <img
-                src="/images/jesse-masterclass-scherm.jpg"
-                alt=""
-                loading="lazy"
-                decoding="async"
-                width="280"
-                height="180"
-              />
+              <img src="/images/jesse-masterclass-scherm.jpg" alt="" loading="lazy" decoding="async" width="280" height="180" />
             </span>
           </a>
 
@@ -116,14 +179,7 @@ import Footer from '../components/Footer.astro';
             </span>
             <span class="training-list__arrow">→</span>
             <span class="training-list__thumb">
-              <img
-                src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=400&q=80"
-                alt=""
-                loading="lazy"
-                decoding="async"
-                width="280"
-                height="180"
-              />
+              <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=400&q=80" alt="" loading="lazy" decoding="async" width="280" height="180" />
             </span>
           </a>
 
@@ -135,14 +191,7 @@ import Footer from '../components/Footer.astro';
             </span>
             <span class="training-list__arrow">→</span>
             <span class="training-list__thumb">
-              <img
-                src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=400&q=80"
-                alt=""
-                loading="lazy"
-                decoding="async"
-                width="280"
-                height="180"
-              />
+              <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=400&q=80" alt="" loading="lazy" decoding="async" width="280" height="180" />
             </span>
           </a>
 
@@ -150,7 +199,7 @@ import Footer from '../components/Footer.astro';
       </div>
     </section>
 
-    <!-- ⑤ LICHT — Over Jesse -->
+    <!-- ⑥ LICHT — Over Jesse -->
     <section class="about-home" data-nav="light">
       <div class="about-home__inner">
         <div class="about-home__photo reveal">
@@ -187,7 +236,7 @@ import Footer from '../components/Footer.astro';
       </div>
     </section>
 
-    <!-- ⑥ DONKER — Contact simple -->
+    <!-- ⑦ DONKER — Contact simple -->
     <section class="contact-simple">
       <div class="container">
         <p class="contact-simple__question reveal">

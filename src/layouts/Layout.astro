@@ -251,6 +251,31 @@ const ogImageURL = new URL(ogImage, Astro.site ?? 'https://jescotraining.nl').to
     }, { passive: true });
   }
 
+  /* ─── Bar chart animatie — triggert bij scroll in ────────────── */
+  const barLists = document.querySelectorAll<HTMLElement>('.proof-bars');
+  if (barLists.length) {
+    const barObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          barObserver.unobserve(entry.target);
+          const bars = entry.target.querySelectorAll<HTMLElement>('.proof-bar');
+          bars.forEach((bar, i) => {
+            const pct = bar.dataset.pct ?? '0';
+            const fill = bar.querySelector<HTMLElement>('.proof-bar__fill');
+            if (fill) {
+              setTimeout(() => {
+                fill.style.width = `${pct}%`;
+              }, i * 120); /* gestaggerde vertraging per balk */
+            }
+          });
+        });
+      },
+      { threshold: 0.3 }
+    );
+    barLists.forEach((el) => barObserver.observe(el));
+  }
+
   /* ─── Kopieer emailadres bij klik — tooltip fallback ────────── */
   const emailLinks = document.querySelectorAll<HTMLAnchorElement>('a[href^="mailto:"]');
   emailLinks.forEach((link) => {
